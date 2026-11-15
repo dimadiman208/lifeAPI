@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeAPI — Settings</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#08090A}
+a{color:#EDEEF0}a:hover{color:#FFFFFF}
+button{font-family:inherit;cursor:pointer}
+.ph{width:390px;height:844px;border-radius:36px;background:#0A0B0D;border:1px solid #24262B;overflow:hidden;position:relative;box-sizing:border-box;flex:none}
+.cap{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8E96;letter-spacing:.06em}
+.lbl{font-size:14px;color:#EDEEF0;margin-top:14px;text-align:center}
+.lbl small{display:block;color:#8A8E96;font-size:12px;margin-top:4px}
+.card{border-radius:20px;border:1px solid #1F2125;background:#121316;overflow:hidden}
+.ico{width:40px;height:40px;border-radius:20px;background:#1A1C20;color:#C9CBD0;display:flex;align-items:center;justify-content:center;border:0;flex:none;text-decoration:none}
+.r{display:flex;align-items:center;gap:12px;padding:10px 14px;min-height:48px;border-top:1px solid #1A1B1F;font-size:14px}
+.r:first-child{border-top:0}
+.r .v{color:#8A8E96;font-size:13px}
+.r .t{flex:1;display:flex;flex-direction:column;gap:2px}
+.r .t small{font-size:12px;color:#8A8E96}
+.sq{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex:none;font-size:13px;font-weight:700}
+.sw{width:44px;height:28px;border-radius:14px;position:relative;flex:none;display:block}
+.sw i{position:absolute;top:4px;width:20px;height:20px;border-radius:10px}
+</style>
+</helmet>
+<div style="width: 1330px; height: 1100px; box-sizing: border-box; padding: 40px; background: #08090A; color: #EDEEF0; font-family: Inter, system-ui, sans-serif; font-feature-settings: 'tnum' 1; display: flex; flex-direction: column; gap: 28px">
+<header style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px"><h1 style="margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Settings — offline-first, private by default</h1><span style="font-size: 13px; color: #A1A4AB">Intelligence data toggles work in Play</span></header>
+<div style="display: flex; gap: 40px; align-items: flex-start">
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><a href="Main.dc.html" class="ico" aria-label="Back"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></a><span style="flex: 1; font-size: 18px; font-weight: 600">Settings</span></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 4px 2px"><span style="width: 52px; height: 52px; border-radius: 26px; background: #26282E; font-size: 20px; font-weight: 600; display: flex; align-items: center; justify-content: center">D</span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600">Denis</span><span style="font-size: 12px; color: #8A8E96">On this phone only · 14.2 MB · no account</span></span></div>
+<div class="card">
+<div class="r"><span class="sq" style="background: #1F2610; color: #D3F36B">◎</span><span class="t">Daily goals</span><span class="v">8 goals ›</span></div>
+<a href="DashboardEdit.dc.html" class="r" style="text-decoration: none; color: #EDEEF0"><span class="sq" style="background: #1F2610; color: #D3F36B">▦</span><span class="t">Today layout</span><span class="v">6 cards ›</span></a>
+<div class="r"><span class="sq" style="background: #1A1C20; color: #C9CBD0">♪</span><span class="t">Notifications</span><span class="v">7 on ›</span></div>
+</div>
+<div class="card">
+<div class="r"><span class="sq" style="background: #1A1C20; color: #C9CBD0">⚖</span><span class="t">Units</span><span class="v">kg · ml · km ›</span></div>
+<div class="r"><span class="sq" style="background: #1E2233; color: #93A9FF">€</span><span class="t">Currency</span><span class="v">EUR · crypto in EUR ›</span></div>
+<div class="r"><span class="sq" style="background: #1A1C20; color: #C9CBD0">◐</span><span class="t">Appearance</span><span class="v">Dark · Graphite ›</span></div>
+</div>
+<div class="card">
+<div class="r"><span class="sq" style="background: #29233A; color: #C5A1FF">⇄</span><span class="t">Integrations<small>FatSecret · Binance · GitHub</small></span><span class="v">3 ›</span></div>
+<div class="r"><span class="sq" style="background: #14211F; color: #62D6C6">⚿</span><span class="t">Security<small>PIN + fingerprint</small></span><span class="v">On ›</span></div>
+<div class="r"><span class="sq" style="background: #14211F; color: #62D6C6">⤓</span><span class="t">Data &amp; backup<small>Last backup today 03:00</small></span><span class="v">›</span></div>
+<div class="r"><span class="sq" style="background: #1F2610; color: #D3F36B">✦</span><span class="t">Intelligence &amp; privacy<small>{{ sharedCount }} of 7 categories shared</small></span><span class="v">›</span></div>
+</div>
+<span style="font-size: 12px; color: #6E727A; text-align: center">LifeAPI 0.3.0 · local database v12</span>
+</div>
+</div>
+<figcaption class="lbl">Settings home<small>Avatar on Today opens this</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span><span style="flex: 1; font-size: 18px; font-weight: 600">Security &amp; data</span></div>
+<span class="cap" style="padding: 0 4px">APP LOCK</span>
+<div class="card">
+<div class="r"><span class="t">Lock with PIN</span><span class="sw" style="background: #62D6C6"><i style="left: 20px; background: #0A0B0D"></i></span></div>
+<div class="r"><span class="t">Unlock with fingerprint</span><span class="sw" style="background: #62D6C6"><i style="left: 20px; background: #0A0B0D"></i></span></div>
+<div class="r"><span class="t">Lock after</span><span class="v">1 minute ›</span></div>
+<div class="r"><span class="t">Hide amounts in app switcher<small>and on locked-screen widgets</small></span><span class="sw" style="background: #62D6C6"><i style="left: 20px; background: #0A0B0D"></i></span></div>
+</div>
+<span class="cap" style="padding: 0 4px">BACKUP · ALL DATA STAYS ON DEVICE</span>
+<div class="card">
+<div class="r"><span class="t">Nightly encrypted backup<small>to Documents/LifeAPI · keeps 14</small></span><span class="sw" style="background: #62D6C6"><i style="left: 20px; background: #0A0B0D"></i></span></div>
+<div class="r"><span class="t">Last backup<small>Today 03:00 · 3.8 MB · verified</small></span><span class="v" style="color: #62D6C6">Back up now</span></div>
+<div class="r"><span class="t">Export<small>Full JSON · CSV per module</small></span><span class="v">›</span></div>
+<div class="r"><span class="t">Import or restore</span><span class="v">›</span></div>
+</div>
+<div class="card" style="padding: 12px 14px; display: flex; flex-direction: column; gap: 8px"><div style="display: flex; justify-content: space-between; font-size: 13px"><span>Storage</span><span style="color: #8A8E96">14.2 MB</span></div><div style="display: flex; height: 8px; border-radius: 4px; overflow: hidden; gap: 2px"><span style="flex: 5.1; background: #93A9FF"></span><span style="flex: 3.4; background: #FF8F70"></span><span style="flex: 2.6; background: #62D6C6"></span><span style="flex: 1.9; background: #F3B76A"></span><span style="flex: 1.2; background: #C5A1FF"></span></div><span style="font-size: 11px; color: #8A8E96">Money 5.1 · Train 3.4 · Health 2.6 · Food 1.9 · Grow 1.2 MB</span></div>
+<button style="height: 44px; border-radius: 14px; border: 1px solid #3A2420; background: transparent; color: #FF9A8F; font-size: 14px; font-weight: 500">Erase all data…</button>
+</div>
+</div>
+<figcaption class="lbl">Security &amp; backup<small>PIN/biometric · local encrypted backups · export/import</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span><span style="flex: 1; font-size: 18px; font-weight: 600">Intelligence &amp; privacy</span></div>
+<div style="border-radius: 18px; border: 1px solid #262D18; background: #12140F; padding: 14px 16px; display: flex; align-items: center; gap: 12px"><span style="flex: 1; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 600">LifeAPI Intelligence</span><span style="font-size: 12px; color: #A1A4AB">Claude API · your own key · sent only on Generate or Sun 20:00</span></span><button onClick="{{ toggleMaster }}" role="switch" aria-checked="{{ master }}" aria-label="Intelligence" style="width: 44px; height: 28px; border-radius: 14px; border: 0; padding: 0; position: relative; background: {{ mTrk }}"><span style="position: absolute; top: 4px; left: {{ mX }}; width: 20px; height: 20px; border-radius: 10px; background: {{ mKnob }}; transition: left 200ms"></span></button></div>
+<span class="cap" style="padding: 0 4px">WHAT IT MAY READ</span>
+<div class="card" style="opacity: {{ listOp }}">
+<sc-for list="{{ cats }}" as="c" hint-placeholder-count="7">
+<div class="r"><span class="t">{{ c.name }}<small>{{ c.what }}</small></span><button onClick="{{ c.toggle }}" role="switch" aria-checked="{{ c.on }}" aria-label="Share {{ c.name }}" style="width: 44px; height: 28px; border-radius: 14px; border: 0; padding: 0; position: relative; flex: none; background: {{ c.trk }}"><span style="position: absolute; top: 4px; left: {{ c.x }}; width: 20px; height: 20px; border-radius: 10px; background: {{ c.knob }}; transition: left 200ms"></span></button></div>
+</sc-for>
+</div>
+<div class="card">
+<div class="r"><span class="t">Preview what gets sent</span><span class="v">›</span></div>
+<div class="r"><span class="t" style="color: #FF9A8F">Delete all reports</span><span class="v">23 saved</span></div>
+</div>
+<span style="font-size: 12px; line-height: 1.5; color: #8A8E96; padding: 0 4px">Never sent: names, notes, merchant names, exact balances, location. Amounts go as rounded weekly totals.</span>
+</div>
+</div>
+<figcaption class="lbl">AI privacy controls<small>Per-category consent, preview of the exact payload</small></figcaption>
+</figure>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1330,"height":1100}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { master: true, on: { sleep: true, train: true, food: true, habits: true, money: true, journal: false, tx: false } };
+  }
+  renderVals() {
+    const st = this.state;
+    const defs = [
+      ['sleep', 'Sleep & recovery', 'times, durations, scores'],
+      ['train', 'Workouts', 'exercises, sets, PRs'],
+      ['food', 'Nutrition', 'daily totals only'],
+      ['habits', 'Habits & projects', 'completion, focus time, task titles'],
+      ['money', 'Spending by category', 'rounded weekly totals'],
+      ['tx', 'Individual transactions', 'merchants and exact amounts'],
+      ['journal', 'Journal text', 'your own words']
+    ];
+    const sw = (on) => ({ trk: on ? '#D3F36B' : '#2C2F36', knob: on ? '#0A0B0D' : '#8A8E96', x: on ? '20px' : '4px' });
+    const cats = defs.map((d) => {
+      const on = st.master && !!st.on[d[0]];
+      return Object.assign({ name: d[1], what: d[2], on, toggle: () => { if (st.master) this.setState({ on: Object.assign({}, st.on, { [d[0]]: !st.on[d[0]] }) }); } }, sw(on));
+    });
+    const m = sw(st.master);
+    return {
+      cats, master: st.master,
+      mTrk: m.trk, mKnob: m.knob, mX: m.x,
+      listOp: st.master ? 1 : 0.45,
+      toggleMaster: () => this.setState({ master: !st.master }),
+      sharedCount: st.master ? Object.keys(st.on).filter((k) => st.on[k]).length : 0
+    };
+  }
+}
+</script>
+</body>
+</html>

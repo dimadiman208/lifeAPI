@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeAPI — Active workout</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0B0D}
+a{color:#EDEEF0}a:hover{color:#FFFFFF}
+button{font-family:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width: 390px; height: 1000px; position: relative; overflow: hidden; background: #0A0B0D; color: #EDEEF0; font-family: Inter, system-ui, sans-serif; font-feature-settings: 'tnum' 1">
+<div style="display: flex; flex-direction: column; gap: 18px; padding: 20px 16px 32px">
+
+<header style="display: flex; align-items: center; gap: 8px">
+<a href="Train.dc.html" aria-label="Back to Train" style="width: 44px; height: 44px; border-radius: 22px; background: #121316; border: 1px solid #222328; box-sizing: border-box; color: #C9CBD0; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></a>
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px"><span style="font-size: 15px; font-weight: 600">Push A</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #FF8F70">● 32:14</span></div>
+<a href="Train.dc.html" style="height: 40px; padding: 0 14px; border-radius: 20px; background: #EDEEF0; color: #0A0B0D; font-size: 13px; font-weight: 600; display: flex; align-items: center; text-decoration: none">Finish</a>
+</header>
+
+<div aria-label="Exercise 1 of 6" style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px">
+<span style="height: 4px; border-radius: 2px; background: #FF8F70"></span><span style="height: 4px; border-radius: 2px; background: #24262B"></span><span style="height: 4px; border-radius: 2px; background: #24262B"></span><span style="height: 4px; border-radius: 2px; background: #24262B"></span><span style="height: 4px; border-radius: 2px; background: #24262B"></span><span style="height: 4px; border-radius: 2px; background: #24262B"></span>
+</div>
+
+<section aria-label="Bench press" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: flex-start">
+<div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.02em">Bench press</h1><span style="font-size: 13px; color: #A1A4AB">Barbell · target 4 × 6 @ RPE 8</span></div>
+<span style="height: 26px; padding: 0 10px; border-radius: 13px; background: #33231F; color: #FFB29C; font-size: 11px; font-weight: 700; display: flex; align-items: center; letter-spacing: 0.03em">PR 92.5 × 3</span>
+</div>
+
+<div role="table" aria-label="Sets" style="border-radius: 18px; border: 1px solid #1F2125; background: #121316; overflow: hidden">
+<div role="row" style="display: grid; grid-template-columns: 44px 1fr 72px 56px 48px; align-items: center; padding: 10px 12px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8A8E96; letter-spacing: 0.08em">
+<span role="columnheader">SET</span><span role="columnheader">PREVIOUS</span><span role="columnheader" style="text-align: center">KG</span><span role="columnheader" style="text-align: center">REPS</span><span role="columnheader" style="text-align: right">DONE</span>
+</div>
+<sc-for list="{{ sets }}" as="s" hint-placeholder-count="5">
+<div role="row" style="display: grid; grid-template-columns: 44px 1fr 72px 56px 48px; align-items: center; padding: 6px 12px; min-height: 48px; background: {{ s.rowBg }}; border-top: 1px solid #1A1B1F">
+<span role="cell" style="font-size: 14px; font-weight: 600; color: {{ s.labelColor }}">{{ s.label }}</span>
+<span role="cell" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A8E96">{{ s.prev }}</span>
+<span role="cell" style="text-align: center; font-size: 15px; font-weight: 600">{{ s.kg }}</span>
+<span role="cell" style="text-align: center; font-size: 15px; font-weight: 600">{{ s.reps }}</span>
+<span role="cell" style="display: flex; justify-content: flex-end"><button onClick="{{ s.toggle }}" aria-label="Set {{ s.label }} done" aria-pressed="{{ s.done }}" style="width: 32px; height: 32px; border-radius: 10px; border: {{ s.border }}; background: {{ s.bg }}; color: #0A0B0D; padding: 0; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="opacity: {{ s.op }}"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button></span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section aria-label="Current set" style="border-radius: 22px; border: 1px solid #2A201D; background: linear-gradient(180deg, #1C1513 0%, #121316 100%); padding: 16px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #FF8F70; letter-spacing: 0.06em">SET {{ activeLabel }} · NOW</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: center">
+<span style="font-size: 12px; color: #A1A4AB">Weight, kg</span>
+<div style="display: flex; align-items: center; gap: 8px">
+<button onClick="{{ kgDown }}" aria-label="Decrease weight by 2.5 kg" style="width: 44px; height: 44px; border-radius: 14px; border: 0; background: #24262B; color: #EDEEF0; font-size: 20px">−</button>
+<span style="width: 64px; text-align: center; font-size: 26px; font-weight: 700; letter-spacing: -0.02em">{{ kg }}</span>
+<button onClick="{{ kgUp }}" aria-label="Increase weight by 2.5 kg" style="width: 44px; height: 44px; border-radius: 14px; border: 0; background: #24262B; color: #EDEEF0; font-size: 20px">+</button>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: center">
+<span style="font-size: 12px; color: #A1A4AB">Reps</span>
+<div style="display: flex; align-items: center; gap: 8px">
+<button onClick="{{ repDown }}" aria-label="One fewer rep" style="width: 44px; height: 44px; border-radius: 14px; border: 0; background: #24262B; color: #EDEEF0; font-size: 20px">−</button>
+<span style="width: 40px; text-align: center; font-size: 26px; font-weight: 700">{{ reps }}</span>
+<button onClick="{{ repUp }}" aria-label="One more rep" style="width: 44px; height: 44px; border-radius: 14px; border: 0; background: #24262B; color: #EDEEF0; font-size: 20px">+</button>
+</div>
+</div>
+</div>
+<button onClick="{{ complete }}" style="height: 52px; border-radius: 16px; border: 0; background: #FF8F70; color: #0A0B0D; font-size: 15px; font-weight: 600">Complete set · start 2:30 rest</button>
+</section>
+
+<section aria-label="Rest timer" style="border-radius: 18px; background: #121316; border: 1px solid #1F2125; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 13px; color: #A1A4AB">Rest</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 500">1:24 <span style="font-size: 12px; color: #8A8E96">/ 2:30</span></span></div>
+<div style="height: 4px; border-radius: 2px; background: #24262B"><div style="width: 56%; height: 4px; border-radius: 2px; background: #EDEEF0"></div></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<button style="height: 40px; border-radius: 12px; border: 1px solid #24262B; background: transparent; color: #C9CBD0; font-size: 13px; font-weight: 500">−15 s</button>
+<button style="height: 40px; border-radius: 12px; border: 1px solid #24262B; background: transparent; color: #C9CBD0; font-size: 13px; font-weight: 500">+15 s</button>
+<button style="height: 40px; border-radius: 12px; border: 1px solid #24262B; background: transparent; color: #C9CBD0; font-size: 13px; font-weight: 500">Skip</button>
+</div>
+</section>
+
+<div style="display: flex; align-items: center; gap: 12px; padding: 4px 4px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96; letter-spacing: 0.06em">NEXT</span>
+<span style="flex: 1; font-size: 14px; font-weight: 500">Incline DB press <span style="color: #8A8E96; font-weight: 400">· 3 × 10 · 30 kg</span></span>
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6E727A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      kg: 87.5, reps: 6,
+      sets: [
+        { label: 'W', prev: '60 × 8', kg: '60', reps: '8', done: true },
+        { label: '1', prev: '87.5 × 6', kg: '87.5', reps: '6', done: true },
+        { label: '2', prev: '87.5 × 6', kg: '87.5', reps: '6', done: true },
+        { label: '3', prev: '87.5 × 6', kg: '', reps: '', done: false },
+        { label: '4', prev: '87.5 × 5', kg: '', reps: '', done: false }
+      ]
+    };
+  }
+  renderVals() {
+    const st = this.state;
+    const activeIdx = st.sets.findIndex((s) => !s.done);
+    const sets = st.sets.map((s, i) => {
+      const active = i === activeIdx;
+      return {
+        label: s.label, prev: s.prev, done: s.done,
+        kg: s.done ? s.kg : (active ? String(st.kg) : '—'),
+        reps: s.done ? s.reps : (active ? String(st.reps) : '—'),
+        rowBg: active ? '#1A1513' : 'transparent',
+        labelColor: s.label === 'W' ? '#F3B76A' : (active ? '#FF8F70' : '#EDEEF0'),
+        bg: s.done ? '#FF8F70' : 'transparent',
+        border: s.done ? '0' : '1.5px solid #3A3F4A',
+        op: s.done ? 1 : 0,
+        toggle: () => {
+          const next = st.sets.map((x, j) => j === i ? Object.assign({}, x, x.done ? { done: false, kg: '', reps: '' } : { done: true, kg: String(st.kg), reps: String(st.reps) }) : x);
+          this.setState({ sets: next });
+        }
+      };
+    });
+    return {
+      sets,
+      activeLabel: activeIdx >= 0 ? st.sets[activeIdx].label : '—',
+      kg: st.kg, reps: st.reps,
+      kgUp: () => this.setState({ kg: st.kg + 2.5 }),
+      kgDown: () => this.setState({ kg: Math.max(0, st.kg - 2.5) }),
+      repUp: () => this.setState({ reps: st.reps + 1 }),
+      repDown: () => this.setState({ reps: Math.max(1, st.reps - 1) }),
+      complete: () => {
+        if (activeIdx < 0) return;
+        const next = st.sets.map((x, j) => j === activeIdx ? Object.assign({}, x, { done: true, kg: String(st.kg), reps: String(st.reps) }) : x);
+        this.setState({ sets: next });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

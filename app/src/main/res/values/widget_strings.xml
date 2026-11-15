@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_dayscore_label">Day score</string>
+    <string name="widget_dayscore_desc">Today\'s score with body, fuel and grow rings</string>
+    <string name="widget_supplements_label">Supplements</string>
+    <string name="widget_supplements_desc">Your next supplement stack — tick without opening the app</string>
+    <string name="widget_water_label">Water</string>
+    <string name="widget_water_desc">Water today with one-tap +250 / +500</string>
+    <string name="widget_project_label">Project next action</string>
+    <string name="widget_project_desc">Your project\'s next action — focus or mark it done</string>
+    <string name="widget_tasks_label">Today\'s tasks</string>
+    <string name="widget_tasks_desc">Today\'s tasks with check-off</string>
+    <string name="widget_workout_label">Workout</string>
+    <string name="widget_workout_desc">Today\'s workout — make it taller to see the week</string>
+    <string name="widget_finance_label">Finance snapshot</string>
+    <string name="widget_finance_desc">Money left today and net worth</string>
+</resources>

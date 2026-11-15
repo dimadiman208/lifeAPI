@@ -1,0 +1,8 @@
+name = "lifeapi-fatsecret"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# Secrets (never commit them):
+#   npx wrangler secret put FATSECRET_CONSUMER_KEY
+#   npx wrangler secret put FATSECRET_CONSUMER_SECRET
+#   npx wrangler secret put APP_SHARED_KEY      # optional soft guard

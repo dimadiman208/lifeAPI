@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeAPI — Grow</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0B0D}
+a{color:#EDEEF0}a:hover{color:#FFFFFF}
+button{font-family:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width: 390px; height: 1560px; position: relative; overflow: hidden; background: #0A0B0D; color: #EDEEF0; font-family: Inter, system-ui, sans-serif; font-feature-settings: 'tnum' 1">
+<div style="position: absolute; top: -160px; right: -60px; width: 460px; height: 380px; background: radial-gradient(closest-side, rgba(197,161,255,0.09), rgba(197,161,255,0)); pointer-events: none"></div>
+<div style="position: relative; display: flex; flex-direction: column; gap: 18px; padding: 28px 16px 140px">
+
+<header style="display: flex; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Grow</h1><span style="font-size: 13px; color: #A1A4AB">{{ doneCount }} of 7 habits · 23-day learning streak</span></div>
+</header>
+
+<nav aria-label="Grow sections" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4px; border-radius: 14px; background: #121316; border: 1px solid #1F2125">
+<a href="Projects.dc.html" style="height: 36px; border-radius: 10px; color: #8A8E96; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; text-decoration: none">Projects</a>
+<a href="Grow.dc.html" aria-current="page" style="height: 36px; border-radius: 10px; background: #24262B; color: #EDEEF0; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none">Growth</a>
+<a href="Plan.dc.html" style="height: 36px; border-radius: 10px; color: #8A8E96; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; text-decoration: none">Plan</a>
+</nav>
+
+<section aria-label="Learning today" style="border-radius: 24px; border: 1px solid #241F2E; background: linear-gradient(180deg, #18141F 0%, #121316 100%); padding: 18px; display: flex; gap: 18px; align-items: center">
+<div style="position: relative; width: 96px; height: 96px; flex: none">
+<svg role="img" aria-label="35 of 45 minutes learned today" width="96" height="96" viewBox="0 0 96 96"><g transform="rotate(-90 48 48)" fill="none" stroke-width="8" stroke-linecap="round"><circle cx="48" cy="48" r="41" stroke="#29233A"></circle><circle cx="48" cy="48" r="41" stroke="#C5A1FF" stroke-dasharray="200.4 257.6"></circle></g></svg>
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center"><span style="font-size: 22px; font-weight: 700">35</span><span style="font-size: 11px; color: #A1A4AB">/ 45 min</span></div>
+</div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96; letter-spacing: 0.06em">LEARNING TODAY</span>
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span>Spanish · lesson 84</span><span style="color: #A1A4AB">15m</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span>Kotlin Flow course</span><span style="color: #A1A4AB">20m</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #A1A4AB"><span>Reading</span><span style="color: #C5A1FF">10m left</span></div>
+</div>
+</section>
+
+<section aria-label="Habits" style="border-radius: 20px; border: 1px solid #1F2125; background: #121316; overflow: hidden">
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding: 16px 16px 6px"><h2 style="margin: 0; font-size: 15px; font-weight: 600">Habits</h2><span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8A8E96; letter-spacing: 0.08em">S M T W T F S</span></div>
+<sc-for list="{{ habits }}" as="h" hint-placeholder-count="7">
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 16px; min-height: 52px">
+<button onClick="{{ h.toggle }}" aria-label="Mark {{ h.name }}" aria-pressed="{{ h.done }}" style="width: 30px; height: 30px; flex: none; border-radius: 10px; border: {{ h.border }}; background: {{ h.bg }}; color: #0A0B0D; display: flex; align-items: center; justify-content: center; padding: 0"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="opacity: {{ h.op }}"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button>
+<span style="flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 500">{{ h.name }}</span><span style="font-size: 12px; color: #8A8E96">{{ h.meta }}</span></span>
+<span style="display: flex; gap: 4px" aria-hidden="true">
+<sc-for list="{{ h.week }}" as="w" hint-placeholder-count="7"><span style="width: 8px; height: 8px; border-radius: 3px; background: {{ w.c }}"></span></sc-for>
+</span>
+</div>
+</sc-for>
+</section>
+
+<section aria-label="Weekly insight" style="border-radius: 20px; border: 1px solid #241F2E; background: #15131A; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<span style="display: flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #C5A1FF; letter-spacing: 0.06em"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"></path></svg>WEEKLY INSIGHT</span>
+<p style="margin: 0; font-size: 17px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em">You read <span style="color: #C5A1FF">38% more</span> on days after 7 h+ of sleep.</p>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 10px; font-size: 12px"><span style="width: 76px; color: #A1A4AB">Slept 7 h+</span><div style="flex: 1; height: 10px; border-radius: 5px; background: #1F1B27"><div style="width: 92%; height: 10px; border-radius: 5px; background: #C5A1FF"></div></div><span style="width: 44px; text-align: right">29 pp</span></div>
+<div style="display: flex; align-items: center; gap: 10px; font-size: 12px"><span style="width: 76px; color: #A1A4AB">Under 7 h</span><div style="flex: 1; height: 10px; border-radius: 5px; background: #1F1B27"><div style="width: 66%; height: 10px; border-radius: 5px; background: #6B5A8A"></div></div><span style="width: 44px; text-align: right">21 pp</span></div>
+</div>
+<span style="font-size: 12px; color: #8A8E96">Average pages per day · last 8 weeks</span>
+</section>
+
+<section aria-label="Goals" style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding: 0 4px"><h2 style="margin: 0; font-size: 15px; font-weight: 600">Goals 2026</h2><span style="font-size: 12px; color: #8A8E96">3 active</span></div>
+<sc-for list="{{ goals }}" as="g" hint-placeholder-count="3">
+<div style="border-radius: 18px; border: 1px solid #1F2125; background: #121316; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px"><span style="font-size: 14px; font-weight: 600">{{ g.name }}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A1A4AB">{{ g.val }}</span></div>
+<div style="height: 6px; border-radius: 3px; background: #1F1B27"><div style="height: 6px; border-radius: 3px; background: #C5A1FF; width: {{ g.w }}"></div></div>
+<span style="font-size: 12px; color: {{ g.noteColor }}">{{ g.note }}</span>
+</div>
+</sc-for>
+</section>
+
+<section aria-label="Consistency, last 26 weeks" style="border-radius: 20px; border: 1px solid #1F2125; background: #121316; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><h2 style="margin: 0; font-size: 15px; font-weight: 600">Consistency</h2><span style="font-size: 12px; color: #A1A4AB">best streak 41 days</span></div>
+<div style="display: grid; grid-template-columns: repeat(26, minmax(0, 1fr)); grid-auto-flow: column; grid-template-rows: repeat(7, 9px); gap: 3px">
+<sc-for list="{{ heat }}" as="c" hint-placeholder-count="182"><span style="border-radius: 2px; background: {{ c }}"></span></sc-for>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: 11px; color: #8A8E96"><span>Jun</span><span>Aug</span><span>Oct</span><span style="display: flex; align-items: center; gap: 4px">Less<span style="width: 9px; height: 9px; border-radius: 2px; background: #1A1C20"></span><span style="width: 9px; height: 9px; border-radius: 2px; background: #3F3557"></span><span style="width: 9px; height: 9px; border-radius: 2px; background: #7D66AB"></span><span style="width: 9px; height: 9px; border-radius: 2px; background: #C5A1FF"></span>More</span></div>
+</section>
+
+</div>
+
+<a href="QuickLog.dc.html" style="position: absolute; right: 16px; bottom: 104px; height: 52px; padding: 0 20px 0 16px; border-radius: 26px; background: #D3F36B; color: #0A0B0D; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; text-decoration: none; box-shadow: 0 10px 28px rgba(211,243,107,0.16)"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>Log</a>
+
+<nav aria-label="Primary" style="position: absolute; left: 0; right: 0; bottom: 0; height: 88px; box-sizing: border-box; padding: 8px 4px 20px; background: rgba(10,11,13,0.94); border-top: 1px solid #1C1D21; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr))">
+<a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #8A8E96; font-size: 11px; font-weight: 500"><span style="width: 56px; height: 30px; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="2"></rect><rect x="13.5" y="3.5" width="7" height="7" rx="2"></rect><rect x="3.5" y="13.5" width="7" height="7" rx="2"></rect><rect x="13.5" y="13.5" width="7" height="7" rx="2"></rect></svg></span>Today</a>
+<a href="Health.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #8A8E96; font-size: 11px; font-weight: 500"><span style="width: 56px; height: 30px; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 5 12 2.5-6H21"></path></svg></span>Body</a>
+<a href="Money.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #8A8E96; font-size: 11px; font-weight: 500"><span style="width: 56px; height: 30px; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"></rect><path d="M3 10h18M16 15h2"></path></svg></span>Money</a>
+<a href="Train.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #8A8E96; font-size: 11px; font-weight: 500"><span style="width: 56px; height: 30px; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"></path></svg></span>Train</a>
+<a href="Grow.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #EDEEF0; font-size: 11px; font-weight: 600"><span style="width: 56px; height: 30px; border-radius: 15px; background: #24262B; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-8"></path><path d="M12 12c0-4 3-6 7-6 0 4-3 6-7 6z"></path><path d="M12 14c0-3-2-5-6-5 0 3 2 5 6 5z"></path></svg></span>Grow</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1560}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { done: { med: true, read: false, phone: true, journal: true, cold: true, spanish: true, steps: false } };
+  }
+  renderVals() {
+    const done = this.state.done;
+    const defs = [
+      ['med', 'Meditate 10 min', '14-day streak', '1111111'],
+      ['read', 'Read 20 pages', '19 / 24 books this year', '1101110'],
+      ['phone', 'No phone before 9:00', '6 of last 7 days', '1011111'],
+      ['journal', 'Evening journal', '9-day streak', '0111111'],
+      ['cold', 'Cold shower', '3× this week', '1010101'],
+      ['spanish', 'Spanish 15 min', '23-day streak', '1111111'],
+      ['steps', '10,000 steps', '7,840 so far today', '1100110']
+    ];
+    let count = 0;
+    const habits = defs.map((d) => {
+      const on = !!done[d[0]];
+      if (on) count++;
+      const hist = d[3].split('').slice(0, 6).map((x) => ({ c: x === '1' ? '#7D66AB' : '#24262B' }));
+      hist.push({ c: on ? '#C5A1FF' : '#24262B' });
+      return {
+        name: d[1], meta: d[2], done: on, week: hist,
+        bg: on ? '#C5A1FF' : 'transparent',
+        border: on ? '0' : '1.5px solid #3A3F4A',
+        op: on ? 1 : 0,
+        toggle: () => this.setState({ done: Object.assign({}, done, { [d[0]]: !on }) })
+      };
+    });
+    const heat = [];
+    let seed = 7;
+    const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+    for (let i = 0; i < 182; i++) {
+      const r = rnd() + i / 600;
+      const c = i > 179 ? '#1A1C20' : r > 0.92 ? '#C5A1FF' : r > 0.6 ? '#7D66AB' : r > 0.3 ? '#3F3557' : '#1A1C20';
+      heat.push(c);
+    }
+    return {
+      habits, doneCount: count, heat,
+      goals: [
+        { name: 'Read 24 books', val: '19 / 24', w: '79%', note: '1.5 books behind pace — 2 short reads gets you back', noteColor: '#F3B76A' },
+        { name: 'Half marathon under 1:50', val: 'wk 6 / 12', w: '50%', note: 'On track · last tempo 5:08 /km', noteColor: '#8BE3A5' },
+        { name: 'Spanish to B1', val: '62%', w: '62%', note: 'On track · unit 9 of 14', noteColor: '#8BE3A5' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeAPI — Customize Today</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#08090A}
+a{color:#EDEEF0}a:hover{color:#FFFFFF}
+button{font-family:inherit;cursor:pointer}
+.ph{width:390px;height:844px;border-radius:36px;background:#0A0B0D;border:1px solid #24262B;overflow:hidden;position:relative;box-sizing:border-box;flex:none}
+.cap{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8E96;letter-spacing:.06em}
+.lbl{font-size:14px;color:#EDEEF0;margin-top:14px;text-align:center}
+.lbl small{display:block;color:#8A8E96;font-size:12px;margin-top:4px}
+</style>
+</helmet>
+<div style="width: 900px; height: 1100px; box-sizing: border-box; padding: 40px; background: #08090A; color: #EDEEF0; font-family: Inter, system-ui, sans-serif; font-feature-settings: 'tnum' 1; display: flex; flex-direction: column; gap: 28px">
+<header style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px"><h1 style="margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Today, your way</h1><span style="font-size: 13px; color: #A1A4AB">Toggle and reorder work in Play</span></header>
+<div style="display: flex; gap: 40px; align-items: flex-start">
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 16px">
+<div style="display: flex; justify-content: space-between; align-items: center">
+<a href="Main.dc.html" style="height: 40px; padding: 0 8px; display: flex; align-items: center; color: #A1A4AB; font-size: 15px; text-decoration: none">Cancel</a>
+<span style="font-size: 16px; font-weight: 600">Customize Today</span>
+<a href="Main.dc.html" style="height: 40px; padding: 0 14px; border-radius: 20px; background: #D3F36B; color: #0A0B0D; font-size: 14px; font-weight: 600; display: flex; align-items: center; text-decoration: none">Done</a>
+</div>
+<span class="cap" style="padding: 4px 4px 0">CARDS · {{ shownCount }} SHOWN</span>
+<div style="border-radius: 20px; border: 1px solid #1F2125; background: #121316; overflow: hidden">
+<sc-for list="{{ cards }}" as="c" hint-placeholder-count="9">
+<div style="display: flex; align-items: center; gap: 10px; padding: 6px 10px 6px 12px; min-height: 52px; border-top: {{ c.divider }}; opacity: {{ c.op }}">
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="#5A5F6A"><circle cx="9" cy="6" r="1.6"></circle><circle cx="15" cy="6" r="1.6"></circle><circle cx="9" cy="12" r="1.6"></circle><circle cx="15" cy="12" r="1.6"></circle><circle cx="9" cy="18" r="1.6"></circle><circle cx="15" cy="18" r="1.6"></circle></svg>
+<span style="width: 8px; height: 8px; border-radius: 4px; background: {{ c.hue }}"></span>
+<span style="flex: 1; display: flex; flex-direction: column; gap: 1px; min-width: 0"><span style="font-size: 14px; font-weight: 500">{{ c.name }}</span><span style="font-size: 11px; color: #8A8E96">{{ c.meta }}</span></span>
+<button onClick="{{ c.up }}" aria-label="Move {{ c.name }} up" style="width: 32px; height: 32px; border-radius: 10px; border: 0; background: transparent; color: #8A8E96; padding: 0; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"></path></svg></button>
+<button onClick="{{ c.toggle }}" role="switch" aria-checked="{{ c.on }}" aria-label="Show {{ c.name }}" style="width: 44px; height: 28px; border-radius: 14px; border: 0; background: {{ c.trk }}; position: relative; padding: 0; flex: none"><span style="position: absolute; top: 4px; left: {{ c.knobX }}; width: 20px; height: 20px; border-radius: 10px; background: {{ c.knob }}; transition: left 200ms"></span></button>
+</div>
+</sc-for>
+</div>
+<span class="cap" style="padding: 4px 4px 0">QUICK LOG TILES · PICK 4</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{ tiles }}" as="t" hint-placeholder-count="8">
+<button onClick="{{ t.toggle }}" aria-pressed="{{ t.on }}" style="height: 36px; padding: 0 12px; border-radius: 18px; border: {{ t.border }}; background: {{ t.bg }}; color: {{ t.fg }}; font-size: 13px; font-weight: 500">{{ t.label }}</button>
+</sc-for>
+</div>
+</div>
+</div>
+<figcaption class="lbl">Customize Today<small>Long-press any card on Today opens this too</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div aria-hidden="true" style="position: absolute; inset: 0; padding: 24px 16px; display: flex; flex-direction: column; gap: 14px; opacity: 0.3"><div style="height: 44px; width: 220px; border-radius: 12px; background: #1A1C20"></div><div style="height: 170px; border-radius: 24px; background: #15161A"></div></div>
+<div style="position: absolute; inset: 0; background: rgba(5,6,8,0.62)"></div>
+<section role="dialog" aria-label="Daily goals" style="position: absolute; left: 0; right: 0; bottom: 0; height: 720px; box-sizing: border-box; border-radius: 28px 28px 0 0; background: #121316; border-top: 1px solid #24262B; padding: 10px 16px 20px; display: flex; flex-direction: column; gap: 14px">
+<span style="align-self: center; width: 36px; height: 4px; border-radius: 2px; background: #3A3F4A"></span>
+<div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 20px; font-weight: 600">Daily goals</h2><span style="font-size: 13px; color: #A1A4AB">Day Score = share of enabled goals hit today. Each counts equally.</span></div>
+<div style="display: flex; flex-direction: column">
+<sc-for list="{{ goals }}" as="g" hint-placeholder-count="8">
+<div style="display: flex; align-items: center; gap: 12px; min-height: 54px; border-bottom: 1px solid #1A1B1F">
+<span style="width: 8px; height: 8px; border-radius: 4px; background: {{ g.hue }}"></span>
+<span style="flex: 1; font-size: 14px; font-weight: 500">{{ g.name }}</span>
+<span style="height: 32px; padding: 0 10px; border-radius: 10px; background: #1A1C20; font-size: 13px; font-weight: 600; display: flex; align-items: center">{{ g.target }}</span>
+<button onClick="{{ g.toggle }}" role="switch" aria-checked="{{ g.on }}" aria-label="Count {{ g.name }} in Day Score" style="width: 44px; height: 28px; border-radius: 14px; border: 0; background: {{ g.trk }}; position: relative; padding: 0; flex: none"><span style="position: absolute; top: 4px; left: {{ g.knobX }}; width: 20px; height: 20px; border-radius: 10px; background: {{ g.knob }}; transition: left 200ms"></span></button>
+</div>
+</sc-for>
+</div>
+<div style="border-radius: 14px; background: #17181C; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center"><span style="font-size: 13px; color: #A1A4AB">Today with these goals</span><span style="font-size: 18px; font-weight: 700">{{ scorePreview }}</span></div>
+<a href="Main.dc.html" style="height: 52px; border-radius: 16px; background: #D3F36B; color: #0A0B0D; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none">Save goals</a>
+</section>
+</div>
+<figcaption class="lbl">Daily goals sheet<small>Live Day Score preview as you toggle goals</small></figcaption>
+</figure>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":900,"height":1100}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      order: ['score', 'intel', 'quick', 'next', 'stats', 'week', 'project', 'money', 'workout'],
+      shown: { score: true, intel: true, quick: true, next: true, stats: true, week: true, project: false, money: false, workout: false },
+      tiles: { Water: true, Stack: true, Meal: true, Expense: true, Set: false, Task: false, Habit: false, Weight: false },
+      goals: { water: true, supps: true, kcal: true, protein: true, steps: false, habits: true, learn: true, spend: true }
+    };
+  }
+  sw(on) { return { trk: on ? '#D3F36B' : '#2C2F36', knob: on ? '#0A0B0D' : '#8A8E96', knobX: on ? '20px' : '4px' }; }
+  renderVals() {
+    const st = this.state;
+    const meta = {
+      score: ['Day Score', 'Rings · Body, Fuel, Grow', '#D3F36B'],
+      intel: ['Intelligence', 'One insight a day', '#D3F36B'],
+      quick: ['Quick log', '4 one-tap tiles', '#62D6C6'],
+      next: ['Up next', 'Reminders & tasks', '#C5A1FF'],
+      stats: ['Stats grid', 'Water · Sleep · Spend · Streak', '#62D6C6'],
+      week: ['This week', '7-day score bars', '#D3F36B'],
+      project: ['Project next action', 'LifeAPI app · 62%', '#C5A1FF'],
+      money: ['Finance snapshot', 'Budget left · net worth', '#93A9FF'],
+      workout: ['Workout', 'Next session · weekly volume', '#FF8F70']
+    };
+    const cards = st.order.map((id, i) => {
+      const on = !!st.shown[id];
+      return Object.assign({
+        name: meta[id][0], meta: meta[id][1], hue: meta[id][2], on,
+        op: on ? 1 : 0.5,
+        divider: i ? '1px solid #1A1B1F' : '0',
+        toggle: () => this.setState({ shown: Object.assign({}, st.shown, { [id]: !on }) }),
+        up: () => { if (!i) return; const o = st.order.slice(); o.splice(i - 1, 0, o.splice(i, 1)[0]); this.setState({ order: o }); }
+      }, this.sw(on));
+    });
+    const tiles = Object.keys(st.tiles).map((k) => {
+      const on = st.tiles[k];
+      return { label: k, on, bg: on ? '#1F2610' : 'transparent', fg: on ? '#D3F36B' : '#A1A4AB', border: on ? '1px solid #4A5A1E' : '1px solid #2C2F36',
+        toggle: () => this.setState({ tiles: Object.assign({}, st.tiles, { [k]: !on }) }) };
+    });
+    const gdef = [
+      ['water', 'Water', '2.5 L', '#62D6C6', false],
+      ['supps', 'Supplements', 'all 7', '#62D6C6', false],
+      ['kcal', 'Calories', '2,400 ±10%', '#F3B76A', false],
+      ['protein', 'Protein', '160 g', '#F3B76A', false],
+      ['steps', 'Steps', '10,000', '#62D6C6', false],
+      ['habits', 'Habits', '7 of 7', '#C5A1FF', false],
+      ['learn', 'Learning', '45 min', '#C5A1FF', false],
+      ['spend', 'Daily spend', '≤ €65', '#93A9FF', true]
+    ];
+    const hitToday = { water: false, supps: false, kcal: false, protein: false, steps: false, habits: false, learn: false, spend: true };
+    const partial = { water: 0.7, supps: 0.57, kcal: 0.77, protein: 0.8, steps: 0.78, habits: 0.71, learn: 0.78, spend: 1 };
+    let sum = 0, n = 0;
+    const goals = gdef.map((g) => {
+      const on = !!st.goals[g[0]];
+      if (on) { sum += partial[g[0]]; n++; }
+      return Object.assign({ name: g[1], target: g[2], hue: g[3], on,
+        toggle: () => this.setState({ goals: Object.assign({}, st.goals, { [g[0]]: !on }) }) }, this.sw(on));
+    });
+    return {
+      cards, tiles, goals,
+      shownCount: Object.keys(st.shown).filter((k) => st.shown[k]).length,
+      scorePreview: n ? Math.round((sum / n) * 100) : '—'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LifeAPI — Privacy Policy</title>
+<meta name="description" content="Privacy Policy for LifeAPI, a personal, non-commercial Android app for tracking finances and daily life.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header class="top">
+  <div class="logo" aria-hidden="true">L</div>
+  <a href="index.html"><strong>LifeAPI</strong></a>
+  <nav class="links"><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a></nav>
+</header>
+
+<h1>Privacy Policy</h1>
+<div class="meta">Effective date: <span class="todo">[DATE]</span> · Version 1.0</div>
+
+<div class="callout">
+  <p><strong>Short version.</strong> LifeAPI is a personal, non-commercial Android app. It has no user accounts, no
+  advertising and no analytics. Your data is stored in a database on your own phone. Bank data is fetched through
+  Enable Banking only after you give consent at your bank, and only to show your own accounts, balances and
+  transactions inside the app.</p>
+</div>
+
+<h2>1. Who we are</h2>
+<p>LifeAPI (“the app”) is a personal, non-commercial Android application for tracking personal finances and other
+areas of daily life (health, nutrition, training, habits). It is developed and operated by a private individual
+(“the developer”, “we”). It is not offered as a commercial service.</p>
+<div class="card">
+  <p><strong>Data controller:</strong> <span class="todo">[Full name of the developer]</span><br>
+  <strong>Country:</strong> <span class="todo">[Country of residence, e.g. Latvia]</span><br>
+  <strong>Contact:</strong> <span class="todo">[Contact e-mail address]</span></p>
+</div>
+
+<h2>2. Scope</h2>
+<p>This policy covers the LifeAPI Android app and the optional connection to bank accounts through
+<a href="https://enablebanking.com" rel="noopener">Enable Banking</a>. It does not cover the websites, apps or services
+of your bank, Enable Banking or other third parties, which have their own privacy policies.</p>
+
+<h2>3. Data the app processes</h2>
+<div class="scroll"><table>
+  <tr><th>Category</th><th>Examples</th><th>Source</th></tr>
+  <tr><td>Data you enter yourself</td><td>Transactions, accounts and balances you type in, budgets, savings goals, recurring payments, manual crypto holdings; health, sleep, weight, nutrition, training, habits, tasks, journal entries</td><td>You</td></tr>
+  <tr><td>Imported files</td><td>Bank statement CSV files you choose to import</td><td>You</td></tr>
+  <tr><td>Bank account data (optional)</td><td>Account identifiers and names, currency, balances, transaction history (date, amount, description/counterparty as provided by the bank)</td><td>Your bank via Enable Banking, after your consent</td></tr>
+  <tr><td>Connection data (optional)</td><td>Enable Banking session / consent identifiers and their validity period</td><td>Enable Banking</td></tr>
+  <tr><td>App settings</td><td>Goals, layout, notification preferences, an app-lock PIN stored as a salted hash</td><td>You</td></tr>
+</table></div>
+<p>The app does not collect location, contacts, advertising identifiers or usage analytics, and it contains no
+advertising or tracking SDKs.</p>
+
+<h2>4. How bank data is accessed (Enable Banking)</h2>
+<ul>
+  <li>Connecting a bank is optional. The rest of the app works without it.</li>
+  <li>When you connect, you are redirected to your bank (e.g. Swedbank Latvia) to log in and approve access. The
+  app never sees or stores your bank login credentials.</li>
+  <li>Access is <strong>read-only</strong> (account information only): accounts, balances and transactions. The app
+  cannot initiate payments or move money.</li>
+  <li>Access is limited to the accounts and the period you approve at your bank. Consent expires after the period set
+  by the bank / regulation (typically up to 180 days) and can be renewed by you.</li>
+  <li>Enable Banking acts as a licensed account information service provider and processes the data under its own
+  terms and <a href="https://enablebanking.com/privacy" rel="noopener">privacy policy</a>.</li>
+</ul>
+<h3>Bank proxy (Cloudflare Worker)</h3>
+<ul>
+  <li>Enable Banking requires every request to be signed with the application’s private key. To keep that key out of
+  the app, the phone talks to a small proxy run by the developer on <strong>Cloudflare Workers</strong>. The proxy
+  holds the key, signs the request and forwards it to Enable Banking; the response is passed straight back to the
+  phone.</li>
+  <li>The proxy is stateless: it does not store bank data, session data or request/response bodies, and does not log
+  them. Cloudflare may keep its own platform-level technical logs and metadata (for example IP address and time of a
+  request) under <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare’s privacy policy</a>.
+  Cloudflare acts as a processor (hosting provider) for this proxy.</li>
+  <li>Only the app holding the proxy’s access key can use it.</li>
+  <li>Where a bank requires it, your device’s IP address is forwarded to Enable Banking/the bank as the “PSU IP
+  address” when you actively refresh.</li>
+</ul>
+<h3>When data is fetched</h3>
+<ul>
+  <li>Right after you connect, and whenever you tap <em>Sync now</em>.</li>
+  <li>Automatically at most once every 6 hours, and only when you open the Money section of the app (there is no
+  background job). The first sync covers up to the last 90 days of transactions; later syncs fetch recent days only.</li>
+</ul>
+
+<h2>5. Where data is stored</h2>
+<ul>
+  <li>All app data, including bank data fetched through Enable Banking, is stored in a local database inside the
+  app’s private storage on your phone. There is no LifeAPI cloud account or LifeAPI server that stores your data
+  (the bank proxy described in section 4 only passes data through).</li>
+  <li>Connection details (proxy address and access key, Enable Banking session id and consent end date) are kept in
+  the app’s private settings storage on the phone, unencrypted. Bank login credentials are never stored.</li>
+  <li>The app database is <strong>not encrypted by the app itself</strong>; it relies on Android’s app sandbox and
+  the device encryption provided by your phone. An optional PIN / fingerprint lock restricts opening the app, but
+  does not encrypt the data.</li>
+  <li><strong>Backups you export</strong> from Settings are saved as unencrypted JSON files to a location you choose.
+  You are responsible for where you keep them.</li>
+  <li><strong>Android system backup:</strong> the app allows Android’s automatic backup. If backup is enabled on your
+  device, Android may copy app data to your Google account under Google’s terms.
+  <span class="todo">[TO CONFIRM: keep or disable Android auto-backup before connecting a bank]</span></li>
+</ul>
+
+<h2>6. Other services the app can contact</h2>
+<p>Only when you use the related feature:</p>
+<ul>
+  <li><strong>Enable Banking</strong> and, through it, your bank — bank connection (section 4), via the developer’s
+  <strong>Cloudflare Workers</strong> proxy.</li>
+  <li><strong>Open Food Facts</strong> — product lookup by barcode or name. The barcode or search text is sent; no
+  personal data.</li>
+  <li><strong>FatSecret</strong> (optional, via a proxy server you configure yourself) — food search and, if you sign
+  in, reading your FatSecret food diary.</li>
+</ul>
+<p>Bank data is not sent to any of these food services. The “Intelligence” insights in the app are computed on the
+phone; no data is sent to AI providers.</p>
+
+<h2>7. Purpose and legal basis</h2>
+<p>Data is processed only to provide the app’s features to you: showing your accounts, balances and transactions,
+categorising spending, budgets and statistics. Bank data is accessed only on the basis of your explicit consent given
+at your bank, which you can withdraw at any time. Data is not sold, shared for marketing, or used for profiling or
+credit decisions.</p>
+<p><span class="todo">[TO CONFIRM]</span> Whether the app is used only by the developer personally or also by other
+people. If others use it, the applicable GDPR legal basis (consent, Art. 6(1)(a) / performance of a service,
+Art. 6(1)(b)) should be stated explicitly.</p>
+
+<h2>8. Retention and deletion</h2>
+<ul>
+  <li>Data stays on your phone until you delete it. You can delete individual records, use <em>Settings → Security &amp;
+  data → Erase all data</em>, or uninstall the app (which removes its local database).</li>
+  <li>Disconnecting a bank stops further access by the app. You can also revoke consent at your bank or with Enable
+  Banking.</li>
+  <li>Data already held by your bank or by Enable Banking is retained under their own policies.</li>
+</ul>
+
+<h2>9. Your rights</h2>
+<p>Under the GDPR you have the right to access, rectify, erase, restrict and port your data, to object, and to withdraw
+consent at any time. Because the data is stored on your device, you can exercise most of these rights directly in the
+app (view, edit, export to JSON, erase). For anything else, contact <span class="todo">[contact e-mail]</span>. You can
+also lodge a complaint with your data protection authority (in Latvia: the Data State Inspectorate,
+<a href="https://www.dvi.gov.lv" rel="noopener">dvi.gov.lv</a>).</p>
+
+<h2>10. Security</h2>
+<p>The app relies on Android’s app sandbox, the device lock and encryption, HTTPS connections to external services, and
+the optional in-app PIN / fingerprint lock. No system is completely secure; protect your phone with a screen lock and
+keep it updated.</p>
+
+<h2>11. Children</h2>
+<p>The app is not intended for children under 16 and is not designed to process children’s data.</p>
+
+<h2>12. Changes</h2>
+<p>Changes to this policy will be published on this page with a new effective date.</p>
+
+<footer>
+  LifeAPI is a personal, non-commercial project and is not affiliated with Swedbank, Enable Banking, Open Food Facts or
+  FatSecret. · <a href="terms.html">Terms of Service</a>
+</footer>
+</main>
+</body>
+</html>

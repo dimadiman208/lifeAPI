@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeAPI — Body · Health</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0B0D}
+a{color:#EDEEF0}a:hover{color:#FFFFFF}
+button{font-family:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="width: 390px; height: 1500px; position: relative; overflow: hidden; background: #0A0B0D; color: #EDEEF0; font-family: Inter, system-ui, sans-serif; font-feature-settings: 'tnum' 1">
+<div style="position: absolute; top: -160px; right: -80px; width: 420px; height: 360px; background: radial-gradient(closest-side, rgba(98,214,198,0.08), rgba(98,214,198,0)); pointer-events: none"></div>
+<div style="position: relative; display: flex; flex-direction: column; gap: 18px; padding: 28px 16px 140px">
+
+<header style="display: flex; align-items: center; justify-content: space-between">
+<h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Body</h1>
+<button aria-label="Pick date" style="height: 36px; padding: 0 12px; border-radius: 18px; border: 1px solid #222328; background: #121316; color: #C9CBD0; font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 6px">Today, 14 Nov<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button>
+</header>
+
+<nav aria-label="Body sections" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 4px; border-radius: 14px; background: #121316; border: 1px solid #1F2125">
+<a href="Health.dc.html" aria-current="page" style="height: 36px; border-radius: 10px; background: #24262B; color: #EDEEF0; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none">Health</a>
+<a href="Nutrition.dc.html" style="height: 36px; border-radius: 10px; color: #8A8E96; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; text-decoration: none">Nutrition</a>
+</nav>
+
+<section aria-label="Recovery" style="border-radius: 24px; border: 1px solid #1F2125; background: linear-gradient(180deg, #141A1A 0%, #111315 100%); padding: 18px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 16px">
+<div style="position: relative; width: 76px; height: 76px; flex: none">
+<svg role="img" aria-label="Recovery 82 percent" width="76" height="76" viewBox="0 0 76 76"><g transform="rotate(-90 38 38)" fill="none" stroke-width="7" stroke-linecap="round"><circle cx="38" cy="38" r="33" stroke="#1E2A2A"></circle><circle cx="38" cy="38" r="33" stroke="#62D6C6" stroke-dasharray="170 207.3"></circle></g></svg>
+<span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700">82</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96; letter-spacing: 0.06em">RECOVERY</span>
+<span style="font-size: 17px; font-weight: 600">Primed — push today</span>
+<span style="font-size: 13px; color: #A1A4AB">HRV above your 14-day baseline</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<div style="border-radius: 14px; background: #171A1C; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; color: #8A8E96">HRV</span><span style="font-size: 17px; font-weight: 600">62<span style="font-size: 12px; color: #8A8E96; font-weight: 500"> ms</span></span><span style="font-size: 11px; color: #62D6C6">↑ 7</span></div>
+<div style="border-radius: 14px; background: #171A1C; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; color: #8A8E96">Resting HR</span><span style="font-size: 17px; font-weight: 600">54<span style="font-size: 12px; color: #8A8E96; font-weight: 500"> bpm</span></span><span style="font-size: 11px; color: #62D6C6">↓ 2</span></div>
+<div style="border-radius: 14px; background: #171A1C; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; color: #8A8E96">Resp. rate</span><span style="font-size: 17px; font-weight: 600">14.2</span><span style="font-size: 11px; color: #8A8E96">= baseline</span></div>
+</div>
+</section>
+
+<section aria-label="Supplement schedule" style="border-radius: 20px; border: 1px solid #1F2125; background: #121316; overflow: hidden">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 16px 6px">
+<div style="display: flex; flex-direction: column; gap: 2px"><h2 style="margin: 0; font-size: 15px; font-weight: 600">Today's stack</h2><span style="font-size: 12px; color: #8A8E96">4 of 7 taken</span></div>
+<span style="height: 28px; padding: 0 10px; border-radius: 14px; background: #1E1B15; color: #F3B76A; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 4px"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 21c-3.9 0-6.5-2.6-6.5-6.1 0-3.4 2.6-5.3 3.6-8.4 2 1.4 2.6 3 2.6 4.5 1-.6 1.7-1.7 1.9-3 2.4 1.8 2.9 4.3 2.9 6.9 0 3.5-2.6 6.1-4.5 6.1z"></path></svg>23-day streak</span>
+</div>
+<div style="padding: 10px 16px 4px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96; letter-spacing: 0.06em">MORNING &amp; MIDDAY</div>
+<sc-for list="{{ morning }}" as="s" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 16px; min-height: 48px">
+<button onClick="{{ s.toggle }}" aria-label="Toggle {{ s.name }}" aria-pressed="{{ s.done }}" style="width: 28px; height: 28px; flex: none; border-radius: 14px; border: {{ s.border }}; background: {{ s.bg }}; color: #0A0B0D; display: flex; align-items: center; justify-content: center; padding: 0"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: {{ s.op }}"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button>
+<span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">{{ s.name }}</span><span style="font-size: 12px; color: #8A8E96">{{ s.dose }}</span></span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96">{{ s.time }}</span>
+</div>
+</sc-for>
+<div style="padding: 10px 16px 4px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96; letter-spacing: 0.06em">EVENING · 20:00</div>
+<sc-for list="{{ evening }}" as="s" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 16px; min-height: 48px">
+<button onClick="{{ s.toggle }}" aria-label="Toggle {{ s.name }}" aria-pressed="{{ s.done }}" style="width: 28px; height: 28px; flex: none; border-radius: 14px; border: {{ s.border }}; background: {{ s.bg }}; color: #0A0B0D; display: flex; align-items: center; justify-content: center; padding: 0"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: {{ s.op }}"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button>
+<span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">{{ s.name }}</span><span style="font-size: 12px; color: #8A8E96">{{ s.dose }}</span></span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96">{{ s.time }}</span>
+</div>
+</sc-for>
+<div style="padding: 8px 16px 16px"><button style="width: 100%; height: 44px; border-radius: 12px; border: 1px solid #24262B; background: transparent; color: #C9CBD0; font-size: 14px; font-weight: 500">Take all evening (3)</button></div>
+</section>
+
+<section aria-label="Intake streak, November" style="border-radius: 20px; border: 1px solid #1F2125; background: #121316; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><h2 style="margin: 0; font-size: 15px; font-weight: 600">November</h2><span style="font-size: 12px; color: #A1A4AB">96% adherence</span></div>
+<div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px">
+<span style="font-size: 10px; color: #8A8E96; text-align: center">M</span><span style="font-size: 10px; color: #8A8E96; text-align: center">T</span><span style="font-size: 10px; color: #8A8E96; text-align: center">W</span><span style="font-size: 10px; color: #8A8E96; text-align: center">T</span><span style="font-size: 10px; color: #8A8E96; text-align: center">F</span><span style="font-size: 10px; color: #8A8E96; text-align: center">S</span><span style="font-size: 10px; color: #8A8E96; text-align: center">S</span>
+<sc-for list="{{ cal }}" as="d" hint-placeholder-count="35">
+<span style="height: 34px; border-radius: 9px; background: {{ d.bg }}; border: {{ d.border }}; box-sizing: border-box; color: {{ d.fg }}; font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center">{{ d.n }}</span>
+</sc-for>
+</div>
+<div style="display: flex; gap: 14px; font-size: 11px; color: #A1A4AB">
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #62D6C6"></span>All taken</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #2B5B55"></span>Partial</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #1A1C20"></span>Upcoming</span>
+</div>
+</section>
+
+<section aria-label="Water" style="border-radius: 20px; border: 1px solid #1F2125; background: #121316; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96; letter-spacing: 0.06em">WATER</span><span style="display: flex; align-items: baseline; gap: 4px"><span style="font-size: 28px; font-weight: 600; letter-spacing: -0.02em">1.75</span><span style="font-size: 14px; color: #8A8E96">/ 2.5 L</span></span></div>
+<span style="font-size: 12px; color: #A1A4AB">7 glasses · last 18:40</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px">
+<span style="height: 28px; border-radius: 6px; background: #62D6C6"></span><span style="height: 28px; border-radius: 6px; background: #62D6C6"></span><span style="height: 28px; border-radius: 6px; background: #62D6C6"></span><span style="height: 28px; border-radius: 6px; background: #62D6C6"></span><span style="height: 28px; border-radius: 6px; background: #62D6C6"></span><span style="height: 28px; border-radius: 6px; background: #62D6C6"></span><span style="height: 28px; border-radius: 6px; background: #62D6C6"></span><span style="height: 28px; border-radius: 6px; background: #1C2524"></span><span style="height: 28px; border-radius: 6px; background: #1C2524"></span><span style="height: 28px; border-radius: 6px; background: #1C2524"></span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<button style="height: 44px; border-radius: 12px; border: 1px solid #24262B; background: #171A1C; color: #EDEEF0; font-size: 14px; font-weight: 600">+150 ml</button>
+<button style="height: 44px; border-radius: 12px; border: 0; background: #62D6C6; color: #0A0B0D; font-size: 14px; font-weight: 600">+250 ml</button>
+<button style="height: 44px; border-radius: 12px; border: 1px solid #24262B; background: #171A1C; color: #EDEEF0; font-size: 14px; font-weight: 600">+500 ml</button>
+</div>
+</section>
+
+<section aria-label="Sleep" style="border-radius: 20px; border: 1px solid #1F2125; background: #121316; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96; letter-spacing: 0.06em">SLEEP · LAST NIGHT</span><span style="font-size: 28px; font-weight: 600; letter-spacing: -0.02em">7h 24m</span></div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A1A4AB">23:38 → 07:02</span>
+</div>
+<div style="display: flex; height: 14px; border-radius: 7px; overflow: hidden; gap: 2px">
+<span style="flex: 6; background: #5A5F6A"></span><span style="flex: 22; background: #8FCFC6"></span><span style="flex: 49; background: #3E8C82"></span><span style="flex: 23; background: #62D6C6"></span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; font-size: 11px; color: #A1A4AB">
+<span style="display: flex; flex-direction: column; gap: 2px"><span>Awake</span><span style="color: #EDEEF0; font-size: 13px; font-weight: 600">27m</span></span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span>REM</span><span style="color: #EDEEF0; font-size: 13px; font-weight: 600">1h 38m</span></span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span>Light</span><span style="color: #EDEEF0; font-size: 13px; font-weight: 600">3h 37m</span></span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span>Deep</span><span style="color: #EDEEF0; font-size: 13px; font-weight: 600">1h 42m</span></span>
+</div>
+<svg role="img" aria-label="Sleep duration last 7 nights against a 7.5 hour target" width="100%" height="96" viewBox="0 0 326 96">
+<line x1="0" y1="26" x2="326" y2="26" stroke="#3A3F4A" stroke-dasharray="3 4"></line>
+<text x="326" y="18" text-anchor="end" fill="#8A8E96" font-size="10" font-family="JetBrains Mono, monospace">7.5h</text>
+<g fill="#2C3A39"><rect x="4" y="38" width="34" height="42" rx="6"></rect><rect x="51" y="46" width="34" height="34" rx="6"></rect><rect x="98" y="24" width="34" height="56" rx="6"></rect><rect x="145" y="42" width="34" height="38" rx="6"></rect><rect x="192" y="20" width="34" height="60" rx="6"></rect><rect x="239" y="50" width="34" height="30" rx="6"></rect></g>
+<rect x="286" y="30" width="34" height="50" rx="6" fill="#62D6C6"></rect>
+<g fill="#8A8E96" font-size="10" font-family="Inter, sans-serif" text-anchor="middle"><text x="21" y="94">Sun</text><text x="68" y="94">Mon</text><text x="115" y="94">Tue</text><text x="162" y="94">Wed</text><text x="209" y="94">Thu</text><text x="256" y="94">Fri</text><text x="303" y="94" fill="#EDEEF0">Sat</text></g>
+</svg>
+</section>
+
+</div>
+
+<a href="QuickLog.dc.html" style="position: absolute; right: 16px; bottom: 104px; height: 52px; padding: 0 20px 0 16px; border-radius: 26px; background: #D3F36B; color: #0A0B0D; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; text-decoration: none; box-shadow: 0 10px 28px rgba(211,243,107,0.16)"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>Log</a>
+
+<nav aria-label="Primary" style="position: absolute; left: 0; right: 0; bottom: 0; height: 88px; box-sizing: border-box; padding: 8px 4px 20px; background: rgba(10,11,13,0.94); border-top: 1px solid #1C1D21; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr))">
+<a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #8A8E96; font-size: 11px; font-weight: 500"><span style="width: 56px; height: 30px; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="2"></rect><rect x="13.5" y="3.5" width="7" height="7" rx="2"></rect><rect x="3.5" y="13.5" width="7" height="7" rx="2"></rect><rect x="13.5" y="13.5" width="7" height="7" rx="2"></rect></svg></span>Today</a>
+<a href="Health.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #EDEEF0; font-size: 11px; font-weight: 600"><span style="width: 56px; height: 30px; border-radius: 15px; background: #24262B; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 5 12 2.5-6H21"></path></svg></span>Body</a>
+<a href="Money.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #8A8E96; font-size: 11px; font-weight: 500"><span style="width: 56px; height: 30px; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"></rect><path d="M3 10h18M16 15h2"></path></svg></span>Money</a>
+<a href="Train.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #8A8E96; font-size: 11px; font-weight: 500"><span style="width: 56px; height: 30px; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"></path></svg></span>Train</a>
+<a href="Grow.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #8A8E96; font-size: 11px; font-weight: 500"><span style="width: 56px; height: 30px; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-8"></path><path d="M12 12c0-4 3-6 7-6 0 4-3 6-7 6z"></path><path d="M12 14c0-3-2-5-6-5 0 3 2 5 6 5z"></path></svg></span>Grow</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1500}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { done: { d3: true, omega: true, creatine: true, zinc: true, mag: false, ash: false, glycine: false } };
+  }
+  renderVals() {
+    const done = this.state.done;
+    const mk = (id, name, dose, time) => {
+      const on = !!done[id];
+      return {
+        name, dose, time, done: on,
+        bg: on ? '#62D6C6' : 'transparent',
+        border: on ? '0' : '1.5px solid #3A3F4A',
+        op: on ? 1 : 0,
+        toggle: () => this.setState({ done: Object.assign({}, done, { [id]: !on }) })
+      };
+    };
+    const cal = [];
+    for (let i = 0; i < 6; i++) cal.push({ n: '', bg: 'transparent', border: '0', fg: 'transparent' });
+    const partial = [5, 11];
+    for (let d = 1; d <= 30; d++) {
+      if (d < 14) {
+        const p = partial.indexOf(d) >= 0;
+        cal.push({ n: d, bg: p ? '#2B5B55' : '#62D6C6', border: '0', fg: p ? '#D7F3EE' : '#0A0B0D' });
+      } else if (d === 14) {
+        cal.push({ n: d, bg: '#14211F', border: '1.5px solid #62D6C6', fg: '#EDEEF0' });
+      } else {
+        cal.push({ n: d, bg: '#1A1C20', border: '0', fg: '#6E727A' });
+      }
+    }
+    return {
+      morning: [
+        mk('d3', 'Vitamin D3 + K2', '2,000 IU · with breakfast', '08:04'),
+        mk('omega', 'Omega-3', '1 g EPA/DHA', '08:04'),
+        mk('creatine', 'Creatine monohydrate', '5 g', '08:10'),
+        mk('zinc', 'Zinc picolinate', '15 mg · after lunch', '13:52')
+      ],
+      evening: [
+        mk('mag', 'Magnesium glycinate', '400 mg', '20:00'),
+        mk('ash', 'Ashwagandha KSM-66', '600 mg', '20:00'),
+        mk('glycine', 'Glycine', '3 g · before bed', '22:30')
+      ],
+      cal
+    };
+  }
+}
+</script>
+</body>
+</html>

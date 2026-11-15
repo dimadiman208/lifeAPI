@@ -1,0 +1,8 @@
+name = "lifeapi-bank"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# Secrets (never commit them, never put the key in this file):
+#   npx wrangler secret put ENABLEBANKING_APP_ID
+#   npx wrangler secret put ENABLEBANKING_PRIVATE_KEY < key-pkcs8.pem
+#   npx wrangler secret put APP_SHARED_KEY

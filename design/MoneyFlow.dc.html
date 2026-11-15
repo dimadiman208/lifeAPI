@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeAPI — Money flows</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#08090A}
+a{color:#EDEEF0}a:hover{color:#FFFFFF}
+button{font-family:inherit;cursor:pointer}
+.ph{width:390px;height:844px;border-radius:36px;background:#0A0B0D;border:1px solid #24262B;overflow:hidden;position:relative;box-sizing:border-box;flex:none}
+.cap{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8E96;letter-spacing:.06em}
+.lbl{font-size:14px;color:#EDEEF0;margin-top:14px;text-align:center}
+.lbl small{display:block;color:#8A8E96;font-size:12px;margin-top:4px}
+.card{border-radius:20px;border:1px solid #1F2125;background:#121316}
+.ico{width:40px;height:40px;border-radius:20px;background:#1A1C20;color:#C9CBD0;display:flex;align-items:center;justify-content:center;border:0;flex:none}
+.dl{display:flex;align-items:center;gap:12px;padding:10px 14px;min-height:48px;border-top:1px solid #1A1B1F}
+.k{height:52px;border-radius:14px;border:0;background:#191A1E;color:#EDEEF0;font-size:22px;font-weight:500}
+.chip{height:34px;padding:0 12px;border-radius:17px;font-size:13px;font-weight:500;display:inline-flex;align-items:center;border:1px solid #2C2F36;color:#A1A4AB;background:transparent}
+.av{width:36px;height:36px;border-radius:12px;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+</style>
+</helmet>
+<div style="width: 1760px; height: 1100px; box-sizing: border-box; padding: 40px; background: #08090A; color: #EDEEF0; font-family: Inter, system-ui, sans-serif; font-feature-settings: 'tnum' 1; display: flex; flex-direction: column; gap: 28px">
+<header style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px"><h1 style="margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Money — entry, breakdown, recurring, goals</h1><span style="font-size: 13px; color: #A1A4AB">Keypad, type switch and categories work in Play</span></header>
+<div style="display: flex; gap: 40px; align-items: flex-start">
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="position: absolute; inset: 0; background: rgba(5,6,8,0.62)"></div>
+<section role="dialog" aria-label="New transaction" style="position: absolute; left: 0; right: 0; bottom: 0; top: 24px; box-sizing: border-box; border-radius: 28px 28px 0 0; background: #121316; border-top: 1px solid #24262B; padding: 10px 16px 18px; display: flex; flex-direction: column; gap: 12px">
+<span style="align-self: center; width: 36px; height: 4px; border-radius: 2px; background: #3A3F4A"></span>
+<div role="tablist" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4px; border-radius: 14px; background: #0D0E10; border: 1px solid #1F2125">
+<sc-for list="{{ types }}" as="t" hint-placeholder-count="3"><button role="tab" aria-selected="{{ t.sel }}" onClick="{{ t.pick }}" style="height: 34px; border-radius: 10px; border: 0; background: {{ t.bg }}; color: {{ t.fg }}; font-size: 13px; font-weight: 600">{{ t.label }}</button></sc-for>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 0"><span style="font-size: 44px; font-weight: 600; letter-spacing: -0.03em; color: {{ amtColor }}">{{ sign }}€{{ amount }}</span><span style="font-size: 12px; color: #8A8E96">{{ sub }}</span></div>
+<sc-if value="{{ isTransfer }}" hint-placeholder-val="{{ false }}">
+<div style="display: grid; grid-template-columns: 1fr 24px 1fr; align-items: center; gap: 6px"><span style="height: 48px; border-radius: 14px; border: 1px solid #24262B; display: flex; flex-direction: column; justify-content: center; padding: 0 12px"><span style="font-size: 11px; color: #8A8E96">From</span><span style="font-size: 14px; font-weight: 600">Swedbank</span></span><span style="text-align: center; color: #8A8E96">→</span><span style="height: 48px; border-radius: 14px; border: 1px solid #24262B; display: flex; flex-direction: column; justify-content: center; padding: 0 12px"><span style="font-size: 11px; color: #8A8E96">To</span><span style="font-size: 14px; font-weight: 600">Savings</span></span></div>
+</sc-if>
+<sc-if value="{{ notTransfer }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; gap: 6px; overflow: hidden; flex-wrap: wrap; height: 76px">
+<sc-for list="{{ cats }}" as="c" hint-placeholder-count="6"><button onClick="{{ c.pick }}" aria-pressed="{{ c.sel }}" class="chip" style="background: {{ c.bg }}; color: {{ c.fg }}; border-color: {{ c.bd }}">{{ c.label }}</button></sc-for>
+</div>
+</sc-if>
+<div style="display: flex; gap: 6px"><span class="chip" style="color: #EDEEF0">Revolut ▾</span><span class="chip" style="color: #EDEEF0">Today ▾</span><span class="chip">Repeat: never ▾</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px">
+<sc-for list="{{ keys }}" as="k" hint-placeholder-count="12"><button class="k" onClick="{{ k.press }}" aria-label="{{ k.aria }}">{{ k.label }}</button></sc-for>
+</div>
+<a href="Money.dc.html" style="height: 52px; border-radius: 16px; background: #93A9FF; color: #0A0B0D; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none">Save {{ typeWord }}</a>
+</section>
+</div>
+<figcaption class="lbl">New transaction<small>Expense / income / transfer · custom categories · repeat</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span><span style="flex: 1; font-size: 18px; font-weight: 600">Spending</span><span style="height: 32px; padding: 0 12px; border-radius: 16px; border: 1px solid #2C2F36; font-size: 13px; color: #A1A4AB; display: flex; align-items: center">November ▾</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 34px; font-weight: 600; letter-spacing: -0.03em">€2,186.40</span><span style="font-size: 13px; color: #A1A4AB">vs €2,412 by 14 Oct · <span style="color: #8BE3A5">−9%</span></span></div>
+<div aria-hidden="true" style="display: flex; height: 16px; border-radius: 8px; overflow: hidden; gap: 2px">
+<span style="flex: 650; background: #93A9FF"></span><span style="flex: 312; background: #7C8FD9"></span><span style="flex: 186; background: #FF8F70"></span><span style="flex: 86; background: #6474B3"></span><span style="flex: 95; background: #4F5A8A"></span><span style="flex: 74; background: #434C70"></span><span style="flex: 783; background: #2C3247"></span>
+</div>
+<div class="card" style="overflow: hidden">
+<sc-for list="{{ cats2 }}" as="c" hint-placeholder-count="7">
+<div class="dl" style="border-top: {{ c.div }}"><span style="width: 10px; height: 10px; border-radius: 3px; background: {{ c.color }}"></span><span style="flex: 1; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 500">{{ c.name }}</span><span style="font-size: 12px; color: #8A8E96">{{ c.pct }} · {{ c.n }}</span></span><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px"><span style="font-size: 14px; font-weight: 600">{{ c.amt }}</span><span style="font-size: 11px; color: {{ c.dColor }}">{{ c.d }}</span></span></div>
+</sc-for>
+</div>
+</div>
+</div>
+<figcaption class="lbl">Expense breakdown<small>One stacked bar + ranked list, delta vs same point last month</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span><span style="flex: 1; font-size: 18px; font-weight: 600">Recurring</span><span class="ico" aria-label="Add recurring"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></div>
+<div class="card" style="padding: 16px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #8A8E96">Subscriptions / mo</span><span style="font-size: 22px; font-weight: 600">€86.46</span><span style="font-size: 12px; color: #A1A4AB">€1,037.52 / yr</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #8A8E96">Next 7 days</span><span style="font-size: 22px; font-weight: 600">€13.99</span><span style="font-size: 12px; color: #A1A4AB">Netflix · Thu 19</span></div>
+</div>
+<span class="cap" style="padding: 0 4px">SUBSCRIPTIONS</span>
+<div class="card" style="overflow: hidden">
+<sc-for list="{{ subs }}" as="s" hint-placeholder-count="5">
+<div class="dl" style="border-top: {{ s.div }}"><span class="av" style="background: #1A1C20; color: #C9CBD0">{{ s.i }}</span><span style="flex: 1; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 500">{{ s.name }}</span><span style="font-size: 12px; color: {{ s.metaColor }}">{{ s.meta }}</span></span><span style="font-size: 14px; font-weight: 600">{{ s.amt }}</span></div>
+</sc-for>
+</div>
+<span class="cap" style="padding: 0 4px">BILLS &amp; INCOME</span>
+<div class="card" style="overflow: hidden">
+<div class="dl" style="border-top: 0"><span class="av" style="background: #1E2233; color: #93A9FF">⌂</span><span style="flex: 1; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 500">Rent</span><span style="font-size: 12px; color: #8A8E96">1st monthly · Swedbank · auto-logged</span></span><span style="font-size: 14px; font-weight: 600">−€650.00</span></div>
+<div class="dl"><span class="av" style="background: #18261E; color: #8BE3A5">€</span><span style="flex: 1; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 500">Salary</span><span style="font-size: 12px; color: #8A8E96">10th monthly · Swedbank</span></span><span style="font-size: 14px; font-weight: 600; color: #8BE3A5">+€4,850.00</span></div>
+<div class="dl"><span class="av" style="background: #29233A; color: #C5A1FF">↻</span><span style="flex: 1; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 500">To savings</span><span style="font-size: 12px; color: #8A8E96">11th monthly · transfer</span></span><span style="font-size: 14px; font-weight: 600">€600.00</span></div>
+</div>
+</div>
+</div>
+<figcaption class="lbl">Recurring &amp; subscriptions<small>Price-change and unused flags; bills auto-log on due date</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span><span style="flex: 1; font-size: 18px; font-weight: 600">Savings goals</span><span class="ico" aria-label="New goal"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></div>
+<span style="font-size: 13px; color: #A1A4AB; margin-top: -4px">Envelopes inside Savings 3.1% · €18,600 allocated</span>
+<div style="border-radius: 22px; border: 1px solid #262B3D; background: linear-gradient(180deg, #151826 0%, #121316 100%); padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 17px; font-weight: 600">Japan, autumn 2027</span><span style="font-size: 13px; color: #A1A4AB">48%</span></div>
+<span style="font-size: 26px; font-weight: 600; letter-spacing: -0.02em">€2,140 <span style="font-size: 14px; color: #8A8E96; font-weight: 500">of €4,500</span></span>
+<div style="height: 8px; border-radius: 4px; background: #1E2233"><div style="width: 48%; height: 8px; border-radius: 4px; background: #93A9FF"></div></div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #A1A4AB"><span>€2,360 left · €290/mo pace</span><span style="color: #8BE3A5">≈ Aug 2027</span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px"><button style="height: 44px; border-radius: 14px; border: 0; background: #93A9FF; color: #0A0B0D; font-size: 14px; font-weight: 600">Add money</button><button style="height: 44px; border-radius: 14px; border: 1px solid #2C2F36; background: transparent; color: #EDEEF0; font-size: 14px; font-weight: 500">Withdraw</button></div>
+<div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px"><div style="display: flex; justify-content: space-between"><span style="color: #A1A4AB">11 Nov · monthly</span><span>+€300.00</span></div><div style="display: flex; justify-content: space-between"><span style="color: #A1A4AB">20 Oct · flights deposit</span><span style="color: #FF9A8F">−€150.00</span></div><div style="display: flex; justify-content: space-between"><span style="color: #A1A4AB">11 Oct · monthly</span><span>+€300.00</span></div></div>
+</div>
+<div class="card" style="padding: 14px 16px; display: flex; flex-direction: column; gap: 8px"><div style="display: flex; justify-content: space-between; font-size: 14px"><span style="font-weight: 600">Emergency fund</span><span style="color: #A1A4AB">€15,560 / €20,000</span></div><div style="height: 6px; border-radius: 3px; background: #1E2233"><div style="width: 78%; height: 6px; border-radius: 3px; background: #93A9FF"></div></div><span style="font-size: 12px; color: #8A8E96">≈ Jul 2027 at €300/mo · 5.6 months of spending</span></div>
+<div class="card" style="padding: 14px 16px; display: flex; flex-direction: column; gap: 8px"><div style="display: flex; justify-content: space-between; font-size: 14px"><span style="font-weight: 600">MacBook Pro 14″</span><span style="color: #A1A4AB">€900 / €2,400</span></div><div style="height: 6px; border-radius: 3px; background: #1E2233"><div style="width: 38%; height: 6px; border-radius: 3px; background: #93A9FF"></div></div><span style="font-size: 12px; color: #8A8E96">Linked to Wishlist · no monthly plan yet</span></div>
+</div>
+</div>
+<figcaption class="lbl">Savings goals<small>Contributions, withdrawals, ETA from real saving pace</small></figcaption>
+</figure>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1760,"height":1100}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { type: 'expense', amt: '4.50', cat: 'Eating out' }; }
+  renderVals() {
+    const st = this.state;
+    const types = [['expense', 'Expense'], ['income', 'Income'], ['transfer', 'Transfer']].map((t) => ({
+      label: t[1], sel: st.type === t[0], bg: st.type === t[0] ? '#24262B' : 'transparent', fg: st.type === t[0] ? '#EDEEF0' : '#8A8E96',
+      pick: () => this.setState({ type: t[0], cat: t[0] === 'income' ? 'Salary' : 'Eating out' })
+    }));
+    const catList = st.type === 'income' ? ['Salary', 'Freelance', 'Refund', 'Gift', '+ New'] : ['Eating out', 'Groceries', 'Transport', 'Subscriptions', 'Fun & hobbies', 'Health', 'Home', '+ New'];
+    const cats = catList.map((c) => ({ label: c, sel: c === st.cat, bg: c === st.cat ? '#1E2233' : 'transparent', fg: c === st.cat ? '#C9D3FF' : '#A1A4AB', bd: c === st.cat ? '#3A4670' : '#2C2F36',
+      pick: () => { if (c !== '+ New') this.setState({ cat: c }); } }));
+    const press = (k) => () => {
+      let a = st.amt === '0' ? '' : st.amt;
+      if (k === 'del') a = a.slice(0, -1);
+      else if (k === '.') { if (a.indexOf('.') < 0) a = (a || '0') + '.'; }
+      else { const dot = a.indexOf('.'); if (dot < 0 || a.length - dot <= 2) a = a + k; }
+      this.setState({ amt: a || '0' });
+    };
+    const keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '0', 'del'].map((k) => ({ label: k === 'del' ? '⌫' : k, aria: k === 'del' ? 'Delete digit' : k, press: press(k) }));
+    const isT = st.type === 'transfer';
+    const tot = 2186.4;
+    const row = (name, amt, n, d, dColor, color) => ({ name, amt: '€' + amt.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','), n, pct: Math.round(amt / tot * 100) + '%', d, dColor, color });
+    const cats2 = [
+      row('Rent & utilities', 650, '2 payments', '= Oct', '#8A8E96', '#93A9FF'),
+      row('Groceries', 312, '14 visits', '−€41', '#8BE3A5', '#7C8FD9'),
+      row('Eating out', 186, '11 visits', '+€58', '#FF9A8F', '#FF8F70'),
+      row('Fun & hobbies', 95, '3', '−€20', '#8BE3A5', '#4F5A8A'),
+      row('Subscriptions', 86.46, '5', '= Oct', '#8A8E96', '#6474B3'),
+      row('Transport', 74, '9 rides', '−€12', '#8BE3A5', '#434C70'),
+      row('Other · 6 categories', 782.94, '23', '−€195', '#8BE3A5', '#2C3247')
+    ].map((c, i) => Object.assign(c, { div: i ? '1px solid #1A1B1F' : '0' }));
+    return {
+      types, cats, keys,
+      amount: st.amt,
+      sign: st.type === 'income' ? '+' : '',
+      amtColor: st.type === 'income' ? '#8BE3A5' : '#EDEEF0',
+      sub: isT ? 'Between your accounts · not counted as spending' : st.cat + ' · Revolut',
+      isTransfer: isT, notTransfer: !isT,
+      typeWord: st.type,
+      cats2,
+      subs: [
+        { i: 'G', name: 'Gym membership', meta: '1st · €45.00', amt: '€45.00', metaColor: '#8A8E96', div: '0' },
+        { i: 'N', name: 'Netflix', meta: 'Thu 19 Nov · price up €1.00 in Oct', amt: '€13.99', metaColor: '#F3B76A', div: '1px solid #1A1B1F' },
+        { i: 'Y', name: 'YouTube Premium', meta: 'Not opened in 41 days', amt: '€13.49', metaColor: '#FF9A8F', div: '1px solid #1A1B1F' },
+        { i: 'S', name: 'Spotify', meta: '8 Dec', amt: '€10.99', metaColor: '#8A8E96', div: '1px solid #1A1B1F' },
+        { i: 'i', name: 'iCloud+ 200 GB', meta: '2 Dec', amt: '€2.99', metaColor: '#8A8E96', div: '1px solid #1A1B1F' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

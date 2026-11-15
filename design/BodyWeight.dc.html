@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeAPI — Body &amp; sleep</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#08090A}
+button{font-family:inherit}
+.ph{width:390px;height:844px;border-radius:36px;background:#0A0B0D;border:1px solid #24262B;overflow:hidden;position:relative;box-sizing:border-box;flex:none}
+.cap{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8E96;letter-spacing:.06em}
+.lbl{font-size:14px;color:#EDEEF0;margin-top:14px;text-align:center}
+.lbl small{display:block;color:#8A8E96;font-size:12px;margin-top:4px}
+.card{border-radius:20px;border:1px solid #1F2125;background:#121316}
+.ico{width:40px;height:40px;border-radius:20px;background:#1A1C20;color:#C9CBD0;display:flex;align-items:center;justify-content:center;border:0;flex:none}
+.tr{display:grid;grid-template-columns:1fr 70px 70px;padding:9px 14px;font-size:13px;border-top:1px solid #1A1B1F}
+.sw{width:44px;height:28px;border-radius:14px;position:relative;flex:none;display:block}
+.sw i{position:absolute;top:4px;width:20px;height:20px;border-radius:10px}
+.chip{height:32px;padding:0 12px;border-radius:16px;font-size:12px;font-weight:500;display:inline-flex;align-items:center;border:1px solid #2C2F36;color:#A1A4AB}
+</style>
+</helmet>
+<div style="width: 900px; height: 1100px; box-sizing: border-box; padding: 40px; background: #08090A; color: #EDEEF0; font-family: Inter, system-ui, sans-serif; font-feature-settings: 'tnum' 1; display: flex; flex-direction: column; gap: 28px">
+<header style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px"><h1 style="margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Body &amp; sleep</h1><span style="font-size: 13px; color: #A1A4AB">Health › Body card opens these</span></header>
+<div style="display: flex; gap: 40px; align-items: flex-start">
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span><span style="flex: 1; font-size: 18px; font-weight: 600">Body weight</span><span style="height: 32px; padding: 0 12px; border-radius: 16px; border: 1px solid #2C2F36; font-size: 13px; color: #A1A4AB; display: flex; align-items: center">12 wk</span></div>
+<div style="display: flex; justify-content: space-between; align-items: flex-end">
+<div style="display: flex; flex-direction: column; gap: 4px"><span class="cap">7-DAY AVERAGE</span><span style="font-size: 40px; font-weight: 600; letter-spacing: -0.03em">78.4<span style="font-size: 16px; color: #8A8E96; font-weight: 500"> kg</span></span></div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px"><span style="font-size: 15px; font-weight: 600; color: #8BE3A5">+0.24 kg/wk</span><span style="font-size: 12px; color: #8A8E96">target +0.25 · on pace</span></div>
+</div>
+<div class="card" style="padding: 14px 10px 10px">
+<svg role="img" aria-label="Weight over 12 weeks: daily weigh-ins and 7-day average rising from 75.6 to 78.4 kg toward an 80 kg goal" width="100%" height="160" viewBox="0 0 336 160">
+<line x1="0" y1="18" x2="336" y2="18" stroke="#8BE3A5" stroke-dasharray="3 4" opacity="0.6"></line><text x="336" y="12" text-anchor="end" fill="#8BE3A5" font-size="10" font-family="JetBrains Mono, monospace">goal 80.0</text>
+<g fill="#3E6E68"><circle cx="6" cy="136" r="2"></circle><circle cx="20" cy="128" r="2"></circle><circle cx="34" cy="140" r="2"></circle><circle cx="48" cy="124" r="2"></circle><circle cx="62" cy="130" r="2"></circle><circle cx="76" cy="118" r="2"></circle><circle cx="90" cy="126" r="2"></circle><circle cx="104" cy="112" r="2"></circle><circle cx="118" cy="120" r="2"></circle><circle cx="132" cy="104" r="2"></circle><circle cx="146" cy="110" r="2"></circle><circle cx="160" cy="98" r="2"></circle><circle cx="174" cy="106" r="2"></circle><circle cx="188" cy="92" r="2"></circle><circle cx="202" cy="100" r="2"></circle><circle cx="216" cy="84" r="2"></circle><circle cx="230" cy="90" r="2"></circle><circle cx="244" cy="80" r="2"></circle><circle cx="258" cy="86" r="2"></circle><circle cx="272" cy="72" r="2"></circle><circle cx="286" cy="78" r="2"></circle><circle cx="300" cy="66" r="2"></circle><circle cx="314" cy="72" r="2"></circle><circle cx="328" cy="60" r="2"></circle></g>
+<path d="M6 134 L34 132 L62 126 L90 120 L118 114 L146 108 L174 102 L202 96 L230 88 L258 82 L286 76 L314 70 L328 66" fill="none" stroke="#62D6C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<circle cx="328" cy="66" r="4" fill="#0A0B0D" stroke="#62D6C6" stroke-width="2"></circle>
+<g fill="#8A8E96" font-size="10" font-family="JetBrains Mono, monospace"><text x="0" y="158">W35</text><text x="150" y="158">W41</text><text x="306" y="158">W46</text></g>
+</svg>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="display: flex; justify-content: space-between; font-size: 13px"><span>Lean bulk 75.6 → 80.0 kg</span><span style="color: #A1A4AB">64%</span></div><div style="height: 6px; border-radius: 3px; background: #1C2524"><div style="width: 64%; height: 6px; border-radius: 3px; background: #62D6C6"></div></div><span style="font-size: 12px; color: #8A8E96">At this rate: about 7 weeks · early January</span></div>
+<div class="card" style="overflow: hidden">
+<div class="tr" style="border-top: 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8A8E96; letter-spacing: 0.06em"><span>WEEK</span><span style="text-align: right">AVG</span><span style="text-align: right">Δ</span></div>
+<div class="tr"><span>This week</span><span style="text-align: right; font-weight: 600">78.4</span><span style="text-align: right; color: #8BE3A5">+0.3</span></div>
+<div class="tr"><span>W45</span><span style="text-align: right">78.1</span><span style="text-align: right; color: #8BE3A5">+0.2</span></div>
+<div class="tr"><span>W44</span><span style="text-align: right">77.9</span><span style="text-align: right; color: #8BE3A5">+0.1</span></div>
+<div class="tr"><span>W43 · deload</span><span style="text-align: right">77.8</span><span style="text-align: right; color: #A1A4AB">−0.1</span></div>
+</div>
+<button style="height: 52px; border-radius: 16px; border: 0; background: #62D6C6; color: #0A0B0D; font-size: 15px; font-weight: 600">Log today · last 78.6 kg</button>
+</div>
+</div>
+<figcaption class="lbl">Weight trend<small>Daily dots, 7-day average, weekly rate vs target</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span><span style="flex: 1; font-size: 18px; font-weight: 600">Sleep &amp; activity</span></div>
+<section aria-label="Log sleep" class="card" style="padding: 16px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; font-weight: 600">Last night</span><span style="font-size: 13px; color: #62D6C6">7 h 24 m</span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<button style="height: 72px; border-radius: 16px; border: 1px solid #24262B; background: #0D0E10; color: #EDEEF0; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px; padding: 0 14px"><span style="font-size: 11px; color: #8A8E96">Lights out · Fri</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 500">23:38</span></button>
+<button style="height: 72px; border-radius: 16px; border: 1px solid #24262B; background: #0D0E10; color: #EDEEF0; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px; padding: 0 14px"><span style="font-size: 11px; color: #8A8E96">Woke · Sat</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 500">07:02</span></button>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; color: #A1A4AB">How rested?</span>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px"><span style="height: 40px; border-radius: 12px; border: 1px solid #2C2F36; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #8A8E96">1</span><span style="height: 40px; border-radius: 12px; border: 1px solid #2C2F36; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #8A8E96">2</span><span style="height: 40px; border-radius: 12px; border: 1px solid #2C2F36; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #8A8E96">3</span><span style="height: 40px; border-radius: 12px; background: #62D6C6; color: #0A0B0D; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700">4</span><span style="height: 40px; border-radius: 12px; border: 1px solid #2C2F36; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #8A8E96">5</span></div></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px"><span class="chip">Late caffeine</span><span class="chip">Alcohol</span><span class="chip" style="border-color: #2A4B46; color: #62D6C6; background: #14211F">Screens off 22:45</span><span class="chip">Trained</span></div>
+<button style="height: 48px; border-radius: 14px; border: 0; background: #62D6C6; color: #0A0B0D; font-size: 14px; font-weight: 600">Save sleep</button>
+</section>
+<div class="card" style="padding: 14px 16px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #8A8E96">This week avg</span><span style="font-size: 18px; font-weight: 600">7 h 06 m</span><span style="font-size: 12px; color: #8BE3A5">+18 m vs last</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #8A8E96">Bedtime spread</span><span style="font-size: 18px; font-weight: 600">± 34 m</span><span style="font-size: 12px; color: #8BE3A5">tighter by 12 m</span></div>
+</div>
+<section aria-label="Activity reminders" class="card" style="overflow: hidden">
+<div style="padding: 14px 16px 6px"><span style="font-size: 15px; font-weight: 600">Activity reminders</span></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px 16px; min-height: 52px"><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Stand up</span><span style="font-size: 12px; color: #8A8E96">after 50 min still · 09:00–18:00</span></span><span class="sw" style="background: #62D6C6"><i style="left: 20px; background: #0A0B0D"></i></span></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px 16px; min-height: 52px; border-top: 1px solid #1A1B1F"><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Walk after lunch</span><span style="font-size: 12px; color: #8A8E96">10 min · weekdays 13:30</span></span><span class="sw" style="background: #62D6C6"><i style="left: 20px; background: #0A0B0D"></i></span></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px 16px; min-height: 52px; border-top: 1px solid #1A1B1F"><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Steps nudge</span><span style="font-size: 12px; color: #8A8E96">19:00 if under 7,000</span></span><span class="sw" style="background: #2C2F36"><i style="left: 4px; background: #8A8E96"></i></span></div>
+</section>
+</div>
+</div>
+<figcaption class="lbl">Manual sleep + reminders<small>Two time tiles, one rating, optional tags</small></figcaption>
+</figure>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":900,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

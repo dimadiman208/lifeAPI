@@ -1,0 +1,17 @@
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+.kotlin/
+
+# secrets — never commit
+*.pem
+*.key
+.dev.vars
+.wrangler/
+node_modules/
+backups/
+*.apk
+*.zip
+*.aab

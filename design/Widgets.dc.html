@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeAPI — Widgets</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#08090A}
+button{font-family:inherit}
+.cap{font-family:'JetBrains Mono',monospace;font-size:10px;color:#8A8E96;letter-spacing:.06em}
+.w{border-radius:24px;background:#141518;border:1px solid #23252A;box-sizing:border-box;padding:14px;display:flex;flex-direction:column;color:#EDEEF0}
+.wl{font-size:13px;color:#EDEEF0;margin-top:10px}
+.wl small{color:#8A8E96;font-size:12px;margin-left:6px}
+.ck{width:20px;height:20px;border-radius:10px;flex:none;display:flex;align-items:center;justify-content:center}
+</style>
+</helmet>
+<div style="width: 1280px; height: 1100px; box-sizing: border-box; padding: 40px; background: #08090A; color: #EDEEF0; font-family: Inter, system-ui, sans-serif; font-feature-settings: 'tnum' 1; display: flex; flex-direction: column; gap: 28px">
+<header style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px"><h1 style="margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Home screen widgets</h1><span style="font-size: 13px; color: #A1A4AB">Jetpack Glance · buttons log without opening the app</span></header>
+<div style="display: flex; gap: 48px; align-items: flex-start">
+
+<div aria-label="Home screen example" style="width: 390px; height: 844px; border-radius: 36px; border: 1px solid #24262B; box-sizing: border-box; overflow: hidden; flex: none; background: radial-gradient(120% 70% at 20% 0%, #1B2014 0%, #0C0D0F 55%), #0C0D0F; padding: 56px 16px 20px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 0 8px 12px"><span style="font-size: 56px; font-weight: 300; letter-spacing: -0.03em">18:42</span><span style="font-size: 14px; color: #A1A4AB">Saturday, 14 November</span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div class="w" style="height: 170px; gap: 8px; align-items: center; justify-content: center">
+<svg role="img" aria-label="Day score 77" width="92" height="92" viewBox="0 0 132 132"><g transform="rotate(-90 66 66)" fill="none" stroke-linecap="round" stroke-width="10"><circle cx="66" cy="66" r="58" stroke="#1E2A2A"></circle><circle cx="66" cy="66" r="58" stroke="#62D6C6" stroke-dasharray="298.8 364.4"></circle><circle cx="66" cy="66" r="44" stroke="#2E271E"></circle><circle cx="66" cy="66" r="44" stroke="#F3B76A" stroke-dasharray="213 276.5"></circle><circle cx="66" cy="66" r="30" stroke="#29233A"></circle><circle cx="66" cy="66" r="30" stroke="#C5A1FF" stroke-dasharray="133.8 188.5"></circle></g><text x="66" y="76" text-anchor="middle" fill="#EDEEF0" font-family="Inter, sans-serif" font-size="28" font-weight="700">77</text></svg>
+<span style="font-size: 12px; color: #A1A4AB">Day score · 5 of 8 goals</span>
+</div>
+<div class="w" style="height: 170px; gap: 8px">
+<span class="cap" style="color: #62D6C6">EVENING STACK</span>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 13px"><span class="ck" style="border: 1.5px solid #3A3F4A"></span>Magnesium</div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 13px"><span class="ck" style="border: 1.5px solid #3A3F4A"></span>Ashwagandha</div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 13px"><span class="ck" style="border: 1.5px solid #3A3F4A"></span>Glycine</div>
+<span style="margin-top: auto; font-size: 11px; color: #8A8E96">4 of 7 today · 20:00</span>
+</div>
+</div>
+<div class="w" style="height: 84px; flex-direction: row; align-items: center; gap: 12px">
+<div style="flex: 1; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 15px; font-weight: 600">1.75 <span style="font-size: 12px; color: #8A8E96; font-weight: 500">/ 2.5 L water</span></span><div style="height: 6px; border-radius: 3px; background: #1C2524"><div style="width: 70%; height: 6px; border-radius: 3px; background: #62D6C6"></div></div></div>
+<button style="height: 44px; padding: 0 12px; border-radius: 14px; border: 0; background: #62D6C6; color: #0A0B0D; font-size: 13px; font-weight: 700">+250</button>
+<button style="height: 44px; padding: 0 12px; border-radius: 14px; border: 0; background: #1C2524; color: #62D6C6; font-size: 13px; font-weight: 700">+500</button>
+</div>
+<div class="w" style="height: 170px; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span class="cap" style="color: #C5A1FF">PROJECT · LIFEAPI APP</span><span style="font-size: 12px; color: #A1A4AB">62%</span></div>
+<div style="height: 6px; border-radius: 3px; background: #29233A"><div style="width: 62%; height: 6px; border-radius: 3px; background: #C5A1FF"></div></div>
+<span style="font-size: 11px; color: #8A8E96">NEXT ACTION</span>
+<span style="font-size: 15px; font-weight: 600; line-height: 1.3">Open PR: Room schema for supplements &amp; intake log</span>
+<div style="margin-top: auto; display: flex; gap: 8px"><button style="height: 36px; padding: 0 14px; border-radius: 12px; border: 0; background: #C5A1FF; color: #0A0B0D; font-size: 12px; font-weight: 700">Focus 25 min</button><button style="height: 36px; padding: 0 14px; border-radius: 12px; border: 0; background: #29233A; color: #C5A1FF; font-size: 12px; font-weight: 600">Done</button></div>
+</div>
+<div style="margin-top: auto; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; padding: 0 8px">
+<span style="height: 56px; border-radius: 18px; background: #1A1C20"></span><span style="height: 56px; border-radius: 18px; background: #1A1C20"></span><span style="height: 56px; border-radius: 18px; background: #D3F36B; color: #0A0B0D; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center">L</span><span style="height: 56px; border-radius: 18px; background: #1A1C20"></span><span style="height: 56px; border-radius: 18px; background: #1A1C20"></span>
+</div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap">
+<div><div class="w" style="width: 180px; height: 180px; gap: 8px"><span class="cap" style="color: #D3F36B">TODAY · 3 LEFT</span>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #8A8E96; text-decoration: line-through"><span class="ck" style="background: #D3F36B; color: #0A0B0D"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>Pay rent</div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 13px"><span class="ck" style="border: 1.5px solid #3A3F4A"></span>Call mom</div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 13px"><span class="ck" style="border: 1.5px solid #3A3F4A"></span>Review PR #42</div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 13px"><span class="ck" style="border: 1.5px solid #3A3F4A"></span>Book dentist</div>
+<span style="margin-top: auto; font-size: 18px; font-weight: 300; color: #A1A4AB">+ task</span></div><div class="wl">Today's tasks<small>2×2</small></div></div>
+<div><div class="w" style="width: 180px; height: 84px; justify-content: space-between"><span class="cap" style="color: #FF8F70">TODAY · PUSH A</span><div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 13px; color: #A1A4AB">6 ex · ~55 min</span><span style="width: 34px; height: 34px; border-radius: 17px; background: #FF8F70; color: #0A0B0D; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"></path></svg></span></div></div><div class="wl">Workout<small>2×1 · tap ▶ starts session</small></div>
+<div class="w" style="width: 180px; height: 84px; justify-content: space-between; margin-top: 16px"><span class="cap" style="color: #FF8F70">WEEK 46</span><div style="display: flex; gap: 4px"><span style="flex: 1; height: 20px; border-radius: 5px; background: #FF8F70"></span><span style="flex: 1; height: 20px; border-radius: 5px; background: #24262B"></span><span style="flex: 1; height: 20px; border-radius: 5px; background: #FF8F70"></span><span style="flex: 1; height: 20px; border-radius: 5px; background: #FF8F70"></span><span style="flex: 1; height: 20px; border-radius: 5px; background: #24262B"></span><span style="flex: 1; height: 20px; border-radius: 5px; border: 1.5px solid #FF8F70; box-sizing: border-box"></span><span style="flex: 1; height: 20px; border-radius: 5px; background: #24262B"></span></div></div><div class="wl">Workout · week<small>2×1 variant</small></div></div>
+<div><div class="w" style="width: 180px; height: 180px; gap: 6px"><span class="cap" style="color: #93A9FF">MONEY · TODAY</span><span style="font-size: 28px; font-weight: 600; letter-spacing: -0.02em">€22.20</span><span style="font-size: 12px; color: #A1A4AB">left of €65 daily</span><div style="height: 6px; border-radius: 3px; background: #1E2233; margin-top: 4px"><div style="width: 66%; height: 6px; border-radius: 3px; background: #93A9FF"></div></div><span style="margin-top: auto; font-size: 12px; color: #8A8E96">Net worth €48,210 · <span style="color: #8BE3A5">+2.4%</span></span></div><div class="wl">Finance snapshot<small>2×2 · balances hidden on lock screen</small></div></div>
+</div>
+<div style="border-radius: 20px; border: 1px solid #1F2125; padding: 20px 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 32px; font-size: 13px; line-height: 1.5; color: #A1A4AB">
+<div><span style="color: #EDEEF0; font-weight: 600">Sizes</span><br>2×1, 2×2, 4×1, 4×2 — each resizes to the nearest variant; nothing scales text down.</div>
+<div><span style="color: #EDEEF0; font-weight: 600">Actions</span><br>+250, checks and Done run as background actions with a haptic tick; the widget updates in place.</div>
+<div><span style="color: #EDEEF0; font-weight: 600">Look</span><br>Graphite 1 surface, 1 px hairline, module hue only on the label and the one live mark. Radius follows the launcher.</div>
+<div><span style="color: #EDEEF0; font-weight: 600">Privacy</span><br>Money and project widgets mask figures when the device is locked (setting).</div>
+<div><span style="color: #EDEEF0; font-weight: 600">Empty</span><br>"Add your first supplement" with one button that opens the editor sheet.</div>
+<div><span style="color: #EDEEF0; font-weight: 600">Shown on the phone</span><br>Day score 2×2 · Supplements 2×2 · Water 4×1 · Project next action 4×2.</div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

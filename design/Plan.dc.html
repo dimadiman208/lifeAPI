@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeAPI — Plan</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#08090A}
+a{color:#EDEEF0}a:hover{color:#FFFFFF}
+button{font-family:inherit;cursor:pointer}
+input::placeholder{color:#6E727A}
+.ph{width:390px;height:844px;border-radius:36px;background:#0A0B0D;border:1px solid #24262B;overflow:hidden;position:relative;box-sizing:border-box;flex:none}
+.cap{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8E96;letter-spacing:.06em}
+.lbl{font-size:14px;color:#EDEEF0;margin-top:14px;text-align:center}
+.lbl small{display:block;color:#8A8E96;font-size:12px;margin-top:4px}
+.card{border-radius:20px;border:1px solid #1F2125;background:#121316}
+.ico{width:40px;height:40px;border-radius:20px;background:#1A1C20;color:#C9CBD0;display:flex;align-items:center;justify-content:center;border:0;flex:none}
+.tk{display:flex;align-items:center;gap:12px;padding:8px 14px;min-height:50px;border-top:1px solid #1A1B1F}
+.ckb{width:26px;height:26px;border-radius:9px;flex:none;padding:0;display:flex;align-items:center;justify-content:center;color:#0A0B0D}
+.nv{position:absolute;left:0;right:0;bottom:0;height:80px;box-sizing:border-box;padding:8px 4px 16px;background:rgba(10,11,13,.94);border-top:1px solid #1C1D21;display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.nv a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#8A8E96;font-size:11px}
+.pr{width:26px;height:22px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;display:flex;align-items:center;justify-content:center;flex:none}
+</style>
+</helmet>
+<div style="width: 1330px; height: 1100px; box-sizing: border-box; padding: 40px; background: #08090A; color: #EDEEF0; font-family: Inter, system-ui, sans-serif; font-feature-settings: 'tnum' 1; display: flex; flex-direction: column; gap: 28px">
+<header style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px"><h1 style="margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Grow › Plan — tasks, recurring, wishlist</h1><span style="font-size: 13px; color: #A1A4AB">Add a task, tick tasks and checklist items in Play</span></header>
+<div style="display: flex; gap: 40px; align-items: flex-start">
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 12px; padding: 24px 16px">
+<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Grow</h2><span style="font-size: 13px; color: #A1A4AB">{{ doneCount }} of {{ total }} done</span></div>
+<nav aria-label="Grow sections" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4px; border-radius: 14px; background: #121316; border: 1px solid #1F2125"><a href="Projects.dc.html" style="height: 36px; color: #8A8E96; font-size: 14px; display: flex; align-items: center; justify-content: center; text-decoration: none">Projects</a><a href="Grow.dc.html" style="height: 36px; color: #8A8E96; font-size: 14px; display: flex; align-items: center; justify-content: center; text-decoration: none">Growth</a><a href="Plan.dc.html" aria-current="page" style="height: 36px; border-radius: 10px; background: #24262B; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none">Plan</a></nav>
+<div style="display: flex; gap: 6px"><span style="height: 32px; padding: 0 12px; border-radius: 16px; background: #EDEEF0; color: #0A0B0D; font-size: 13px; font-weight: 600; display: flex; align-items: center">Today</span><span style="height: 32px; padding: 0 12px; border-radius: 16px; border: 1px solid #2C2F36; color: #A1A4AB; font-size: 13px; display: flex; align-items: center">Upcoming</span><span style="height: 32px; padding: 0 12px; border-radius: 16px; border: 1px solid #2C2F36; color: #A1A4AB; font-size: 13px; display: flex; align-items: center">Inbox 4</span><span style="height: 32px; padding: 0 12px; border-radius: 16px; border: 1px solid #2C2F36; color: #A1A4AB; font-size: 13px; display: flex; align-items: center">Calendar</span></div>
+<div class="card" style="overflow: hidden">
+<div style="padding: 12px 14px 4px"><span class="cap" style="color: #D3F36B">TOP 3 TODAY</span></div>
+<sc-for list="{{ top }}" as="t" hint-placeholder-count="3">
+<div class="tk" style="border-top: {{ t.div }}"><button onClick="{{ t.toggle }}" class="ckb" aria-pressed="{{ t.done }}" aria-label="Complete {{ t.title }}" style="border: {{ t.bd }}; background: {{ t.bg }}"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="opacity: {{ t.op }}"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button><span style="flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 500; color: {{ t.fg }}; text-decoration: {{ t.td }}">{{ t.title }}</span><span style="font-size: 12px; color: #8A8E96">{{ t.meta }}</span></span></div>
+</sc-for>
+</div>
+<div class="card" style="overflow: hidden">
+<div style="padding: 12px 14px 4px"><span class="cap">ANYTIME</span></div>
+<sc-for list="{{ rest }}" as="t" hint-placeholder-count="4">
+<div class="tk" style="border-top: {{ t.div }}"><button onClick="{{ t.toggle }}" class="ckb" aria-pressed="{{ t.done }}" aria-label="Complete {{ t.title }}" style="border: {{ t.bd }}; background: {{ t.bg }}"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="opacity: {{ t.op }}"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button><span style="flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 500; color: {{ t.fg }}; text-decoration: {{ t.td }}">{{ t.title }}</span><span style="font-size: 12px; color: #8A8E96">{{ t.meta }}</span></span></div>
+</sc-for>
+</div>
+</div>
+<form onSubmit="{{ add }}" style="position: absolute; left: 12px; right: 12px; bottom: 92px; height: 52px; border-radius: 18px; background: #191A1E; border: 1px solid #2C2F36; display: flex; align-items: center; gap: 8px; padding: 0 6px 0 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.5)"><label style="position: absolute; left: -9999px" for="qa">Quick add task</label><input id="qa" value="{{ draft }}" onChange="{{ onDraft }}" placeholder="Add task · “call mom tmrw 18:00”" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; color: #EDEEF0; font-family: Inter, sans-serif; font-size: 15px"><button type="submit" aria-label="Add task" style="width: 40px; height: 40px; border-radius: 13px; border: 0; background: #D3F36B; color: #0A0B0D; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></button></form>
+<nav aria-label="Primary" class="nv"><a href="Main.dc.html">Today</a><a href="Health.dc.html">Body</a><a href="Money.dc.html">Money</a><a href="Train.dc.html">Train</a><a href="Grow.dc.html" aria-current="page" style="color: #EDEEF0; font-weight: 600"><span style="width: 52px; height: 6px; border-radius: 3px; background: #C5A1FF"></span>Grow</a></nav>
+</div>
+<figcaption class="lbl">Daily plan<small>Top 3 + anytime · quick-add bar replaces the Log FAB on this tab</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="position: absolute; inset: 0; background: rgba(5,6,8,0.62)"></div>
+<section role="dialog" aria-label="Task" style="position: absolute; left: 0; right: 0; bottom: 0; top: 88px; box-sizing: border-box; border-radius: 28px 28px 0 0; background: #121316; border-top: 1px solid #24262B; padding: 10px 16px 20px; display: flex; flex-direction: column; gap: 14px">
+<span style="align-self: center; width: 36px; height: 4px; border-radius: 2px; background: #3A3F4A"></span>
+<span style="font-size: 20px; font-weight: 600">Pack gym bag</span>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="height: 32px; padding: 0 12px; border-radius: 16px; background: #1F2610; border: 1px solid #4A5A1E; color: #D3F36B; font-size: 13px; display: flex; align-items: center">Today 07:30</span><span style="height: 32px; padding: 0 12px; border-radius: 16px; border: 1px solid #2C2F36; color: #A1A4AB; font-size: 13px; display: flex; align-items: center">Train</span><span style="height: 32px; padding: 0 12px; border-radius: 16px; border: 1px solid #2C2F36; color: #A1A4AB; font-size: 13px; display: flex; align-items: center">Remind 10 min before</span></div>
+<div class="card" style="padding: 14px; display: flex; flex-direction: column; gap: 10px; background: #17181C">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 14px; font-weight: 600">Repeat</span><span style="font-size: 13px; color: #D3F36B">Mon, Wed, Thu, Sat</span></div>
+<div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px">
+<span style="height: 36px; border-radius: 10px; background: #D3F36B; color: #0A0B0D; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">M</span><span style="height: 36px; border-radius: 10px; border: 1px solid #2C2F36; color: #8A8E96; font-size: 12px; display: flex; align-items: center; justify-content: center">T</span><span style="height: 36px; border-radius: 10px; background: #D3F36B; color: #0A0B0D; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">W</span><span style="height: 36px; border-radius: 10px; background: #D3F36B; color: #0A0B0D; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">T</span><span style="height: 36px; border-radius: 10px; border: 1px solid #2C2F36; color: #8A8E96; font-size: 12px; display: flex; align-items: center; justify-content: center">F</span><span style="height: 36px; border-radius: 10px; background: #D3F36B; color: #0A0B0D; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">S</span><span style="height: 36px; border-radius: 10px; border: 1px solid #2C2F36; color: #8A8E96; font-size: 12px; display: flex; align-items: center; justify-content: center">S</span>
+</div>
+<span style="font-size: 12px; color: #8A8E96">Follows your Train schedule · ends never · 31 times done</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span class="cap">CHECKLIST · {{ ckDone }} / {{ ckTotal }}</span><span style="font-size: 12px; color: #8A8E96">resets each time</span></div>
+<sc-for list="{{ checklist }}" as="c" hint-placeholder-count="5">
+<button onClick="{{ c.toggle }}" aria-pressed="{{ c.done }}" style="display: flex; align-items: center; gap: 12px; min-height: 44px; border: 0; background: transparent; color: {{ c.fg }}; padding: 0; font-size: 15px; text-align: left"><span style="width: 22px; height: 22px; border-radius: 7px; flex: none; border: {{ c.bd }}; background: {{ c.bg }}; color: #0A0B0D; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="opacity: {{ c.op }}"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span style="text-decoration: {{ c.td }}">{{ c.t }}</span></button>
+</sc-for>
+<span style="font-size: 14px; color: #8A8E96; min-height: 40px; display: flex; align-items: center">+ Add item</span>
+</div>
+</section>
+</div>
+<figcaption class="lbl">Task with repeat &amp; checklist<small>Recurring rule, reminder and a resettable checklist</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span><span style="flex: 1; font-size: 18px; font-weight: 600">Wishlist</span><span class="ico" aria-label="Add item"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<div class="card" style="padding: 12px 14px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #8A8E96">Total wanted</span><span style="font-size: 20px; font-weight: 600">€3,987</span></div>
+<div class="card" style="padding: 12px 14px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #8A8E96">Saved toward</span><span style="font-size: 20px; font-weight: 600">€1,189</span></div>
+</div>
+<div style="display: flex; gap: 6px"><span style="height: 30px; padding: 0 12px; border-radius: 15px; background: #EDEEF0; color: #0A0B0D; font-size: 12px; font-weight: 600; display: flex; align-items: center">Priority</span><span style="height: 30px; padding: 0 12px; border-radius: 15px; border: 1px solid #2C2F36; color: #A1A4AB; font-size: 12px; display: flex; align-items: center">Closest to funded</span><span style="height: 30px; padding: 0 12px; border-radius: 15px; border: 1px solid #2C2F36; color: #A1A4AB; font-size: 12px; display: flex; align-items: center">Price</span></div>
+<sc-for list="{{ wish }}" as="w" hint-placeholder-count="5">
+<div class="card" style="padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; border-color: {{ w.bd }}">
+<div style="display: flex; align-items: center; gap: 10px"><span class="pr" style="background: {{ w.prBg }}; color: {{ w.prFg }}">{{ w.p }}</span><span style="flex: 1; font-size: 14px; font-weight: 600">{{ w.name }}</span><span style="font-size: 14px; font-weight: 600">{{ w.price }}</span></div>
+<div style="height: 5px; border-radius: 3px; background: #1E2233"><div style="height: 5px; border-radius: 3px; background: {{ w.barC }}; width: {{ w.w }}"></div></div>
+<div style="display: flex; justify-content: space-between; font-size: 12px"><span style="color: #8A8E96">{{ w.saved }}</span><span style="color: {{ w.noteC }}">{{ w.note }}</span></div>
+</div>
+</sc-for>
+</div>
+</div>
+<figcaption class="lbl">Wishlist<small>Price, priority, per-item savings — funded items prompt a decision</small></figcaption>
+</figure>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1330,"height":1100}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      draft: '',
+      tasks: [
+        { id: 1, title: 'Room schema PR for LifeAPI', meta: 'LifeAPI app · next action · 25 min', top: true, done: false },
+        { id: 2, title: 'Pay rent', meta: 'Recurring · 1st monthly', top: true, done: true },
+        { id: 3, title: 'Call mom', meta: '18:00 · weekly Sat', top: true, done: false },
+        { id: 4, title: 'Review PR #42', meta: 'LifeAPI app', top: false, done: false },
+        { id: 5, title: 'Book dentist', meta: 'Inbox · no date', top: false, done: false },
+        { id: 6, title: 'Pack gym bag', meta: '↻ Mon Wed Thu Sat · checklist 5', top: false, done: true }
+      ],
+      next: 7,
+      ck: [true, true, false, false, false]
+    };
+  }
+  map(list) {
+    const st = this.state;
+    return list.map((t, i) => ({
+      title: t.title, meta: t.meta, done: t.done, div: i ? '1px solid #1A1B1F' : '0',
+      bd: t.done ? '0' : '1.5px solid #3A3F4A', bg: t.done ? '#D3F36B' : 'transparent', op: t.done ? 1 : 0,
+      fg: t.done ? '#8A8E96' : '#EDEEF0', td: t.done ? 'line-through' : 'none',
+      toggle: () => this.setState({ tasks: st.tasks.map((x) => x.id === t.id ? Object.assign({}, x, { done: !x.done }) : x) })
+    }));
+  }
+  renderVals() {
+    const st = this.state;
+    const ckT = ['Shoes', 'Lifting belt', 'Chalk', 'Water bottle', 'Headphones'];
+    const checklist = ckT.map((t, i) => {
+      const d = st.ck[i];
+      return { t, done: d, fg: d ? '#8A8E96' : '#EDEEF0', td: d ? 'line-through' : 'none', bd: d ? '0' : '1.5px solid #3A3F4A', bg: d ? '#D3F36B' : 'transparent', op: d ? 1 : 0,
+        toggle: () => { const c = st.ck.slice(); c[i] = !d; this.setState({ ck: c }); } };
+    });
+    const W = (p, name, price, saved, pct, note, noteC, extra) => Object.assign({ p, name, price, saved, w: pct + '%', note, noteC,
+      prBg: p === 'P1' ? '#1F2610' : '#1A1C20', prFg: p === 'P1' ? '#D3F36B' : '#A1A4AB', barC: '#93A9FF', bd: '#1F2125' }, extra || {});
+    return {
+      top: this.map(st.tasks.filter((t) => t.top)),
+      rest: this.map(st.tasks.filter((t) => !t.top)),
+      total: st.tasks.length,
+      doneCount: st.tasks.filter((t) => t.done).length,
+      draft: st.draft,
+      onDraft: (e) => this.setState({ draft: e.target.value }),
+      add: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        const v = (st.draft || '').trim();
+        if (!v) return;
+        this.setState({ tasks: st.tasks.concat([{ id: st.next, title: v, meta: 'Just added · Today', top: false, done: false }]), next: st.next + 1, draft: '' });
+      },
+      checklist, ckDone: st.ck.filter(Boolean).length, ckTotal: ckT.length,
+      wish: [
+        W('P1', 'MacBook Pro 14″', '€2,400', '€900 saved · €1,500 to go', 38, 'Savings goal ↗', '#93A9FF'),
+        W('P2', 'Garmin Forerunner 265', '€449', '€120 saved', 27, 'race in May', '#8A8E96'),
+        W('P2', 'Standing desk frame', '€620', '€0 saved', 0, 'watch for sale', '#8A8E96'),
+        W('P3', 'Kindle Paperwhite', '€169', '€169 saved', 100, 'Funded — buy?', '#8BE3A5', { barC: '#8BE3A5', bd: '#2A4A35' }),
+        W('P3', 'Noise-cancelling headphones', '€349', '€0 saved', 0, 'wait 30 days', '#8A8E96')
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

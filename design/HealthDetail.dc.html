@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeAPI — Supplements &amp; water</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#08090A}
+a{color:#EDEEF0}a:hover{color:#FFFFFF}
+button{font-family:inherit;cursor:pointer}
+input::placeholder{color:#6E727A}
+.ph{width:390px;height:844px;border-radius:36px;background:#0A0B0D;border:1px solid #24262B;overflow:hidden;position:relative;box-sizing:border-box;flex:none}
+.cap{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8E96;letter-spacing:.06em}
+.lbl{font-size:14px;color:#EDEEF0;margin-top:14px;text-align:center}
+.lbl small{display:block;color:#8A8E96;font-size:12px;margin-top:4px}
+.card{border-radius:20px;border:1px solid #1F2125;background:#121316}
+.ico{width:40px;height:40px;border-radius:20px;background:#1A1C20;color:#C9CBD0;display:flex;align-items:center;justify-content:center;border:0;flex:none}
+.field{display:flex;align-items:center;height:50px;padding:0 14px;border-radius:14px;background:#0D0E10;border:1px solid #24262B;box-sizing:border-box;gap:8px}
+.field input{flex:1;min-width:0;border:0;outline:none;background:transparent;color:#EDEEF0;font-family:Inter,sans-serif;font-size:16px}
+.chip{height:34px;padding:0 12px;border-radius:17px;font-size:13px;font-weight:500;display:inline-flex;align-items:center;border:1px solid #2C2F36;color:#A1A4AB;background:transparent}
+.chip.on{background:#14211F;border-color:#2A4B46;color:#62D6C6}
+.sw{width:44px;height:28px;border-radius:14px;position:relative;flex:none;display:block}
+.sw i{position:absolute;top:4px;width:20px;height:20px;border-radius:10px}
+</style>
+</helmet>
+<div style="width: 1330px; height: 1100px; box-sizing: border-box; padding: 40px; background: #08090A; color: #EDEEF0; font-family: Inter, system-ui, sans-serif; font-feature-settings: 'tnum' 1; display: flex; flex-direction: column; gap: 28px">
+<header style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px"><h1 style="margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Supplements &amp; water</h1><span style="font-size: 13px; color: #A1A4AB">Schedule days and delete water entries work in Play</span></header>
+<div style="display: flex; gap: 40px; align-items: flex-start">
+
+<figure style="margin: 0">
+<div class="ph">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: #0A0B0D"></div>
+<div style="position: absolute; inset: 0; background: rgba(5,6,8,0.62)"></div>
+<section role="dialog" aria-label="Edit supplement" style="position: absolute; left: 0; right: 0; bottom: 0; top: 40px; box-sizing: border-box; border-radius: 28px 28px 0 0; background: #121316; border-top: 1px solid #24262B; padding: 10px 16px 20px; display: flex; flex-direction: column; gap: 14px">
+<span style="align-self: center; width: 36px; height: 4px; border-radius: 2px; background: #3A3F4A"></span>
+<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 20px; font-weight: 600">Edit supplement</h2><button style="height: 36px; padding: 0 10px; border: 0; background: transparent; color: #FF9A8F; font-size: 14px">Archive</button></div>
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; color: #A1A4AB">Name</span><span class="field"><input value="Magnesium glycinate" readonly></span></label>
+<div style="display: grid; grid-template-columns: 120px 1fr; gap: 10px">
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; color: #A1A4AB">Dose</span><span class="field"><input value="400" readonly></span></label>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; color: #A1A4AB">Unit</span><div style="display: flex; gap: 6px; height: 50px; align-items: center"><span class="chip on">mg</span><span class="chip">g</span><span class="chip">IU</span><span class="chip">caps</span></div></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; color: #A1A4AB">Days · {{ dayCount }} per week</span>
+<div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px">
+<sc-for list="{{ days }}" as="d" hint-placeholder-count="7"><button onClick="{{ d.toggle }}" aria-pressed="{{ d.on }}" aria-label="{{ d.full }}" style="height: 44px; border-radius: 12px; border: {{ d.border }}; background: {{ d.bg }}; color: {{ d.fg }}; font-size: 13px; font-weight: 600">{{ d.l }}</button></sc-for>
+</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; color: #A1A4AB">Times</span><div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="chip on" style="font-family: 'JetBrains Mono', monospace">20:00</span><span class="chip">+ Add time</span></div></div>
+<div class="card" style="overflow: hidden">
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px"><span style="flex: 1; font-size: 14px">Reminder</span><span style="font-size: 12px; color: #8A8E96">grouped per time slot</span><span class="sw" style="background: #62D6C6"><i style="left: 20px; background: #0A0B0D"></i></span></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-top: 1px solid #1A1B1F"><span style="flex: 1; font-size: 14px">Take with food</span><span class="sw" style="background: #2C2F36"><i style="left: 4px; background: #8A8E96"></i></span></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-top: 1px solid #1A1B1F"><span style="flex: 1; font-size: 14px">Stock</span><span style="font-size: 13px; color: #A1A4AB">54 caps · remind at 10</span></div>
+</div>
+<button style="margin-top: auto; height: 52px; border-radius: 16px; border: 0; background: #D3F36B; color: #0A0B0D; font-size: 15px; font-weight: 600">Save</button>
+</section>
+</div>
+<figcaption class="lbl">Supplement editor<small>Days of week, times, reminder, stock</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><a href="Health.dc.html" class="ico" aria-label="Back"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></a><span style="flex: 1; font-size: 18px; font-weight: 600">Magnesium glycinate</span><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg></span></div>
+<span style="font-size: 13px; color: #A1A4AB; margin-top: -6px; padding-left: 50px">400 mg · daily · 20:00</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; color: #8A8E96">Streak</span><span style="font-size: 20px; font-weight: 600">23 d</span></div>
+<div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; color: #8A8E96">Best</span><span style="font-size: 20px; font-weight: 600">41 d</span></div>
+<div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; color: #8A8E96">30-day</span><span style="font-size: 20px; font-weight: 600">96%</span></div>
+</div>
+<div class="card" style="padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; font-weight: 600">November</span><span style="display: flex; gap: 4px"><span class="ico" style="width: 32px; height: 32px" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"></path></svg></span><span class="ico" style="width: 32px; height: 32px" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></span></span></div>
+<div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px">
+<sc-for list="{{ cal }}" as="d" hint-placeholder-count="35"><span style="height: 32px; border-radius: 8px; background: {{ d.bg }}; border: {{ d.border }}; box-sizing: border-box; color: {{ d.fg }}; font-size: 11px; display: flex; align-items: center; justify-content: center">{{ d.n }}</span></sc-for>
+</div>
+<div style="display: flex; gap: 12px; font-size: 11px; color: #A1A4AB"><span style="display: flex; align-items: center; gap: 5px"><span style="width: 9px; height: 9px; border-radius: 3px; background: #62D6C6"></span>Taken</span><span style="display: flex; align-items: center; gap: 5px"><span style="width: 9px; height: 9px; border-radius: 3px; background: #3A3F4A"></span>Skipped</span><span style="display: flex; align-items: center; gap: 5px"><span style="width: 9px; height: 9px; border-radius: 3px; border: 1.5px dashed #FF8F70; box-sizing: border-box"></span>Missed</span></div>
+</div>
+<div class="card" style="overflow: hidden">
+<sc-for list="{{ log }}" as="l" hint-placeholder-count="4"><div style="display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-top: {{ l.div }}"><span style="flex: 1; font-size: 14px">{{ l.day }}</span><span style="font-size: 12px; color: {{ l.color }}">{{ l.status }}</span><span class="cap" style="width: 44px; text-align: right">{{ l.time }}</span></div></sc-for>
+</div>
+</div>
+</div>
+<figcaption class="lbl">Intake history<small>Calendar + log · skipped never breaks a streak</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><a href="Health.dc.html" class="ico" aria-label="Back"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></a><span style="flex: 1; font-size: 18px; font-weight: 600">Water</span><span style="height: 32px; padding: 0 12px; border-radius: 16px; border: 1px solid #2C2F36; font-size: 13px; color: #A1A4AB; display: flex; align-items: center">Goal 2.5 L</span></div>
+<div style="display: flex; align-items: baseline; gap: 6px"><span style="font-size: 40px; font-weight: 600; letter-spacing: -0.03em">{{ totalL }}</span><span style="font-size: 15px; color: #8A8E96">/ 2.5 L · {{ pct }}%</span></div>
+<div style="height: 8px; border-radius: 4px; background: #1C2524"><div style="height: 8px; border-radius: 4px; background: #62D6C6; width: {{ barW }}; transition: width 300ms"></div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="display: flex; justify-content: space-between; align-items: baseline"><span class="cap">QUICK ADD</span><span style="font-size: 12px; color: #62D6C6">Edit amounts</span></div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{ amounts }}" as="a" hint-placeholder-count="4"><button onClick="{{ a.add }}" style="height: 48px; border-radius: 14px; border: {{ a.border }}; background: {{ a.bg }}; color: {{ a.fg }}; font-size: 14px; font-weight: 600">+{{ a.ml }}</button></sc-for>
+</div></div>
+<div class="card" style="overflow: hidden">
+<div style="padding: 12px 14px 4px; display: flex; justify-content: space-between"><span class="cap">TODAY · {{ count }} ENTRIES</span><span style="font-size: 11px; color: #8A8E96">swipe ← to delete</span></div>
+<sc-for list="{{ entries }}" as="e" hint-placeholder-count="6">
+<div style="display: flex; align-items: center; gap: 12px; padding: 6px 8px 6px 14px; min-height: 44px; border-top: 1px solid #1A1B1F">
+<span class="cap" style="width: 40px">{{ e.time }}</span><span style="flex: 1; font-size: 14px; font-weight: 500">{{ e.ml }} ml</span><span style="font-size: 12px; color: #8A8E96">{{ e.src }}</span>
+<button onClick="{{ e.del }}" aria-label="Delete {{ e.ml }} ml at {{ e.time }}" style="width: 36px; height: 36px; border-radius: 10px; border: 0; background: transparent; color: #8A8E96; padding: 0; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"></path></svg></button>
+</div>
+</sc-for>
+</div>
+<svg role="img" aria-label="Water last 7 days against 2.5 litre goal" width="100%" height="64" viewBox="0 0 356 64"><line x1="0" y1="10" x2="356" y2="10" stroke="#2A4B46" stroke-dasharray="3 4"></line><g fill="#1F3330"><rect x="2" y="16" width="40" height="40" rx="6"></rect><rect x="53" y="8" width="40" height="48" rx="6"></rect><rect x="104" y="22" width="40" height="34" rx="6"></rect><rect x="155" y="12" width="40" height="44" rx="6"></rect><rect x="206" y="6" width="40" height="50" rx="6"></rect><rect x="257" y="18" width="40" height="38" rx="6"></rect></g><rect x="308" y="22" width="40" height="34" rx="6" fill="#62D6C6"></rect></svg>
+</div>
+</div>
+<figcaption class="lbl">Water log<small>Custom quick-add amounts · delete or edit any entry</small></figcaption>
+</figure>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1330,"height":1100}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      days: [true, true, true, true, true, true, true],
+      entries: [
+        { id: 1, time: '07:40', ml: 500, src: 'Widget' },
+        { id: 2, time: '09:15', ml: 250, src: 'Quick log' },
+        { id: 3, time: '11:30', ml: 330, src: 'Quick log' },
+        { id: 4, time: '14:05', ml: 250, src: 'Today' },
+        { id: 5, time: '16:20', ml: 170, src: 'Edited' },
+        { id: 6, time: '18:40', ml: 250, src: 'Widget' }
+      ],
+      next: 7
+    };
+  }
+  renderVals() {
+    const st = this.state;
+    const L = ['M', 'T', 'W', 'T', 'F', 'S', 'S'], F = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const days = L.map((l, i) => {
+      const on = st.days[i];
+      return { l, full: F[i], on, bg: on ? '#14211F' : 'transparent', fg: on ? '#62D6C6' : '#8A8E96', border: on ? '1px solid #2A4B46' : '1px solid #2C2F36',
+        toggle: () => { const d = st.days.slice(); d[i] = !on; this.setState({ days: d }); } };
+    });
+    const cal = [];
+    for (let i = 0; i < 6; i++) cal.push({ n: '', bg: 'transparent', border: '0', fg: 'transparent' });
+    for (let d = 1; d <= 30; d++) {
+      if (d === 11) cal.push({ n: d, bg: '#3A3F4A', border: '0', fg: '#EDEEF0' });
+      else if (d < 14) cal.push({ n: d, bg: '#62D6C6', border: '0', fg: '#0A0B0D' });
+      else if (d === 14) cal.push({ n: d, bg: '#14211F', border: '1.5px solid #62D6C6', fg: '#EDEEF0' });
+      else cal.push({ n: d, bg: '#1A1C20', border: '0', fg: '#6E727A' });
+    }
+    const total = st.entries.reduce((s, e) => s + e.ml, 0);
+    const now = () => { const t = new Date(); return ('0' + t.getHours()).slice(-2) + ':' + ('0' + t.getMinutes()).slice(-2); };
+    const amounts = [150, 250, 330, 500].map((ml) => ({
+      ml, bg: ml === 250 ? '#62D6C6' : '#171A1C', fg: ml === 250 ? '#0A0B0D' : '#EDEEF0', border: ml === 250 ? '0' : '1px solid #24262B',
+      add: () => this.setState({ entries: st.entries.concat([{ id: st.next, time: now(), ml, src: 'Just now' }]).slice(-6), next: st.next + 1 })
+    }));
+    return {
+      days, dayCount: st.days.filter(Boolean).length, cal,
+      log: [
+        { day: 'Fri 13 Nov', status: 'Taken', color: '#62D6C6', time: '20:04', div: '0' },
+        { day: 'Thu 12 Nov', status: 'Taken late', color: '#F3B76A', time: '22:31', div: '1px solid #1A1B1F' },
+        { day: 'Wed 11 Nov', status: 'Skipped · travel', color: '#A1A4AB', time: '—', div: '1px solid #1A1B1F' },
+        { day: 'Wed 21 Oct', status: 'Missed', color: '#FF9A8F', time: '—', div: '1px solid #1A1B1F' }
+      ],
+      totalL: (total / 1000).toFixed(2), pct: Math.round(total / 25), barW: Math.min(100, total / 25) + '%',
+      amounts, count: st.entries.length,
+      entries: st.entries.map((e) => Object.assign({}, e, { del: () => this.setState({ entries: st.entries.filter((x) => x.id !== e.id) }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

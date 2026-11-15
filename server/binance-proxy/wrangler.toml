@@ -1,0 +1,8 @@
+name = "lifeapi-binance"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# Secrets (never commit them, never put them in this file):
+#   npx wrangler secret put BINANCE_API_KEY
+#   npx wrangler secret put BINANCE_API_SECRET
+#   npx wrangler secret put APP_SHARED_KEY

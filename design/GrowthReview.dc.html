@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeAPI — Journal &amp; reviews</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#08090A}
+button{font-family:inherit}
+.ph{width:390px;height:844px;border-radius:36px;background:#0A0B0D;border:1px solid #24262B;overflow:hidden;position:relative;box-sizing:border-box;flex:none}
+.cap{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8E96;letter-spacing:.06em}
+.lbl{font-size:14px;color:#EDEEF0;margin-top:14px;text-align:center}
+.lbl small{display:block;color:#8A8E96;font-size:12px;margin-top:4px}
+.card{border-radius:20px;border:1px solid #1F2125;background:#121316}
+.ico{width:40px;height:40px;border-radius:20px;background:#1A1C20;color:#C9CBD0;display:flex;align-items:center;justify-content:center;border:0;flex:none}
+.tag{height:22px;padding:0 8px;border-radius:11px;font-size:11px;font-weight:600;display:inline-flex;align-items:center}
+.je{display:flex;gap:12px;padding:12px 14px;border-top:1px solid #1A1B1F}
+.g{padding:12px 14px;display:flex;flex-direction:column;gap:8px;border-top:1px solid #1A1B1F}
+.bar{height:6px;border-radius:3px;background:#29233A}
+.bar i{display:block;height:6px;border-radius:3px;background:#C5A1FF}
+.m3{border-radius:16px;background:#121316;border:1px solid #1F2125;padding:12px;display:flex;flex-direction:column;gap:4px}
+</style>
+</helmet>
+<div style="width: 1330px; height: 1100px; box-sizing: border-box; padding: 40px; background: #08090A; color: #EDEEF0; font-family: Inter, system-ui, sans-serif; font-feature-settings: 'tnum' 1; display: flex; flex-direction: column; gap: 28px">
+<header style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px"><h1 style="margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Grow › Growth — journal, goals, reviews</h1><span style="font-size: 13px; color: #A1A4AB">What you actually did → what you're aiming at → how it compares</span></header>
+<div style="display: flex; gap: 40px; align-items: flex-start">
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span><span style="flex: 1; font-size: 18px; font-weight: 600">Done journal</span><span style="font-size: 13px; color: #A1A4AB">Sat 14 Nov</span></div>
+<label style="display: flex; align-items: flex-start; gap: 10px; min-height: 76px; padding: 14px; border-radius: 16px; background: #0D0E10; border: 1.5px solid #C5A1FF; box-sizing: border-box"><span style="position: absolute; left: -9999px">What did you get done?</span><textarea placeholder="What did you actually get done?" style="flex: 1; min-height: 44px; border: 0; outline: none; resize: none; background: transparent; color: #EDEEF0; font-family: Inter, sans-serif; font-size: 15px; line-height: 1.4">Fixed the sleep chart bug and wrote tests for it</textarea></label>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span class="tag" style="background: #29233A; color: #C5A1FF; height: 30px; padding: 0 12px; font-size: 12px">LifeAPI app</span><span class="tag" style="background: transparent; border: 1px solid #2C2F36; color: #A1A4AB; height: 30px; padding: 0 12px; font-size: 12px">+ tag</span><span style="flex: 1"></span><span class="tag" style="background: #C5A1FF; color: #0A0B0D; height: 30px; padding: 0 14px; font-size: 13px">Add</span></div>
+<div style="border-radius: 16px; border: 1px dashed #3A2F52; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px"><span class="cap" style="color: #C5A1FF">FROM TODAY'S COMPLETED TASKS</span><span style="font-size: 13px; color: #A1A4AB">Merged PR #41 · Pay rent · 2 focus sessions (50 min)</span><span style="font-size: 13px; color: #C5A1FF; font-weight: 600">Add all 3</span></div>
+<div class="card" style="overflow: hidden">
+<div class="je" style="border-top: 0"><span class="cap" style="width: 40px; padding-top: 2px">17:40</span><span style="flex: 1; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; line-height: 1.4">Merged PR #41 — Day Score calculation with unit tests</span><span><span class="tag" style="background: #29233A; color: #C5A1FF">LifeAPI app</span></span></span></div>
+<div class="je"><span class="cap" style="width: 40px; padding-top: 2px">14:10</span><span style="flex: 1; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; line-height: 1.4">Finished Kotlin Flow course module 6 (operators)</span><span><span class="tag" style="background: #1E2233; color: #93A9FF">Learning</span></span></span></div>
+<div class="je"><span class="cap" style="width: 40px; padding-top: 2px">10:30</span><span style="flex: 1; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; line-height: 1.4">12 km easy run, negative split</span><span><span class="tag" style="background: #33231F; color: #FF8F70">Half marathon</span></span></span></div>
+</div>
+<div style="display: flex; justify-content: space-between; padding: 4px 4px; font-size: 13px; color: #A1A4AB"><span>Fri 13 Nov · 4 entries</span><span>Thu 12 · 2</span><span>Wed 11 · 5</span></div>
+</div>
+</div>
+<figcaption class="lbl">Achievement journal<small>Free text in one line, auto-suggested from completed tasks</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span><span style="flex: 1; font-size: 18px; font-weight: 600">Goals</span></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 4px; border-radius: 14px; background: #121316; border: 1px solid #1F2125"><span style="height: 34px; border-radius: 10px; background: #24262B; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center">30 days · 16 left</span><span style="height: 34px; color: #8A8E96; font-size: 13px; display: flex; align-items: center; justify-content: center">90 days · 47 left</span></div>
+<div class="card" style="overflow: hidden">
+<div class="g" style="border-top: 0"><div style="display: flex; justify-content: space-between; font-size: 14px"><span style="font-weight: 600">Ship v0.3 offline data layer</span><span style="color: #A1A4AB">2 / 5</span></div><div class="bar"><i style="width: 40%"></i></div><span style="font-size: 12px; color: #F3B76A">Behind: needs 1 task every 5 days</span></div>
+<div class="g"><div style="display: flex; justify-content: space-between; font-size: 14px"><span style="font-weight: 600">Finish 2 books</span><span style="color: #A1A4AB">1 / 2</span></div><div class="bar"><i style="width: 50%"></i></div><span style="font-size: 12px; color: #8BE3A5">On track · p. 142 of 240</span></div>
+<div class="g"><div style="display: flex; justify-content: space-between; font-size: 14px"><span style="font-weight: 600">Bench 95 kg × 3</span><span style="color: #A1A4AB">92.5 × 3</span></div><div class="bar"><i style="width: 80%"></i></div><span style="font-size: 12px; color: #8BE3A5">Linked to Train · e1RM 101.8 → needs 104.5</span></div>
+<div class="g"><div style="display: flex; justify-content: space-between; font-size: 14px"><span style="font-weight: 600">Meditate 20 of 30 days</span><span style="color: #A1A4AB">14 / 20</span></div><div class="bar"><i style="width: 70%"></i></div><span style="font-size: 12px; color: #8BE3A5">Linked to habit · 14-day streak</span></div>
+</div>
+<span class="cap" style="padding: 4px 4px 0">SKILLS · TIME INVESTED</span>
+<div class="card" style="overflow: hidden">
+<div class="g" style="border-top: 0; flex-direction: row; align-items: center"><span style="flex: 1; font-size: 14px">Spanish</span><span style="font-size: 12px; color: #A1A4AB">A2 → B1</span><span style="width: 52px; text-align: right; font-size: 14px; font-weight: 600">31 h</span></div>
+<div class="g" style="flex-direction: row; align-items: center"><span style="flex: 1; font-size: 14px">Kotlin coroutines &amp; Flow</span><span style="font-size: 12px; color: #A1A4AB">module 6/9</span><span style="width: 52px; text-align: right; font-size: 14px; font-weight: 600">12 h</span></div>
+<div class="g" style="flex-direction: row; align-items: center"><span style="flex: 1; font-size: 14px">Compose animation</span><span style="font-size: 12px; color: #A1A4AB">new</span><span style="width: 52px; text-align: right; font-size: 14px; font-weight: 600">5 h</span></div>
+</div>
+</div>
+</div>
+<figcaption class="lbl">30 / 90-day goals &amp; skills<small>Goals can link to live metrics in other modules</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span><span style="flex: 1; display: flex; flex-direction: column"><span style="font-size: 18px; font-weight: 600">Week 46 review</span><span style="font-size: 12px; color: #8A8E96">9–15 Nov · vs week 45</span></span><span style="height: 32px; padding: 0 12px; border-radius: 16px; border: 1px solid #2C2F36; font-size: 13px; color: #A1A4AB; display: flex; align-items: center">Month</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<div class="m3"><span class="cap" style="font-size: 10px">CONSISTENCY</span><span style="font-size: 22px; font-weight: 600">86%</span><span style="font-size: 12px; color: #8BE3A5">+4 pts</span><span style="font-size: 11px; color: #8A8E96">active 6 of 7 days</span></div>
+<div class="m3"><span class="cap" style="font-size: 10px">EFFORT</span><span style="font-size: 22px; font-weight: 600">14.2 h</span><span style="font-size: 12px; color: #FF9A8F">−1.8 h</span><span style="font-size: 11px; color: #8A8E96">focus + learning</span></div>
+<div class="m3"><span class="cap" style="font-size: 10px">OUTPUT</span><span style="font-size: 22px; font-weight: 600">19</span><span style="font-size: 12px; color: #8BE3A5">+5</span><span style="font-size: 11px; color: #8A8E96">tasks · 1 milestone</span></div>
+</div>
+<div class="card" style="padding: 14px; display: flex; flex-direction: column; gap: 8px">
+<span class="cap">LAST 5 WEEKS · OUTPUT vs EFFORT</span>
+<svg role="img" aria-label="Output rising from 11 to 19 over five weeks while effort stays between 13 and 16 hours" width="100%" height="100" viewBox="0 0 326 100"><g fill="#29233A"><rect x="10" y="40" width="40" height="52" rx="6"></rect><rect x="76" y="34" width="40" height="58" rx="6"></rect><rect x="142" y="30" width="40" height="62" rx="6"></rect><rect x="208" y="26" width="40" height="66" rx="6"></rect><rect x="274" y="36" width="40" height="56" rx="6"></rect></g><path d="M30 66 L96 58 L162 52 L228 44 L294 26" fill="none" stroke="#C5A1FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path><g fill="#C5A1FF"><circle cx="30" cy="66" r="3.5"></circle><circle cx="96" cy="58" r="3.5"></circle><circle cx="162" cy="52" r="3.5"></circle><circle cx="228" cy="44" r="3.5"></circle><circle cx="294" cy="26" r="4.5"></circle></g></svg>
+<div style="display: flex; gap: 14px; font-size: 11px; color: #A1A4AB"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #29233A"></span>Effort (h)</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 3px; border-radius: 2px; background: #C5A1FF"></span>Output (items)</span></div>
+</div>
+<div class="card" style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+<span class="cap">HIGHLIGHTS</span>
+<span style="font-size: 14px; line-height: 1.45">• Bench and squat PRs in the same week</span>
+<span style="font-size: 14px; line-height: 1.45">• Day Score avg 81 — best week since September</span>
+<span style="font-size: 14px; line-height: 1.45">• Eating out €36 over budget</span>
+</div>
+<div style="border-radius: 18px; border: 1px solid #262D18; background: #12140F; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px"><span class="cap" style="color: #D3F36B">INTELLIGENCE</span><span style="font-size: 14px; line-height: 1.45">More done in less time: output per hour has nearly doubled in 5 weeks (0.7 → 1.3). Protect Tue/Thu mornings — 70% of tasks closed there.</span></div>
+</div>
+</div>
+<figcaption class="lbl">Weekly / monthly review<small>Three dimensions side by side, never blended into one number</small></figcaption>
+</figure>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1330,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

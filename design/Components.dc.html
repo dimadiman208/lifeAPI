@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeAPI — Components</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0B0D}
+a{color:#EDEEF0}a:hover{color:#FFFFFF}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 1280px; height: 1720px; box-sizing: border-box; padding: 56px 48px; background: #0A0B0D; color: #EDEEF0; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; gap: 32px; font-feature-settings: 'tnum' 1">
+
+<header style="display: flex; justify-content: space-between; align-items: flex-end">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A8E96; letter-spacing: 0.08em">COMPONENT LIBRARY · COMPOSE</span><h1 style="margin: 0; font-size: 40px; font-weight: 600; letter-spacing: -0.03em">Components</h1></div>
+<span style="font-size: 13px; color: #A1A4AB">Mono caption under each = composable name</span>
+</header>
+
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: start">
+
+<section aria-label="Buttons" style="border-radius: 22px; border: 1px solid #1F2125; background: #0F1012; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">Buttons</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<button style="height: 48px; padding: 0 20px; border-radius: 16px; border: 0; background: #D3F36B; color: #0A0B0D; font-size: 14px; font-weight: 600">Primary</button>
+<button style="height: 48px; padding: 0 20px; border-radius: 16px; border: 0; background: #FF8F70; color: #0A0B0D; font-size: 14px; font-weight: 600">Module</button>
+<button style="height: 48px; padding: 0 20px; border-radius: 16px; border: 1px solid #2C2F36; background: transparent; color: #EDEEF0; font-size: 14px; font-weight: 500">Outline</button>
+<button style="height: 48px; padding: 0 20px; border-radius: 16px; border: 0; background: #24262B; color: #EDEEF0; font-size: 14px; font-weight: 500">Tonal</button>
+<button style="height: 48px; padding: 0 16px; border-radius: 16px; border: 0; background: transparent; color: #C9CBD0; font-size: 14px; font-weight: 500">Ghost</button>
+<button disabled style="height: 48px; padding: 0 20px; border-radius: 16px; border: 0; background: #191A1E; color: #6E727A; font-size: 14px; font-weight: 500">Disabled</button>
+</div>
+<div style="display: flex; align-items: center; gap: 12px">
+<button aria-label="Notifications" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #222328; background: #121316; color: #C9CBD0; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"></path><path d="M10 20.5a2 2 0 0 0 4 0"></path></svg></button>
+<button style="height: 52px; padding: 0 20px 0 16px; border-radius: 26px; border: 0; background: #D3F36B; color: #0A0B0D; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>Log</button>
+<button style="height: 40px; padding: 0 16px; border-radius: 20px; border: 0; background: #D3F36B; color: #0A0B0D; font-size: 13px; font-weight: 600">Take</button>
+</div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96">LifeButton(variant) · LifeIconButton · LogFab · PillAction</span>
+</section>
+
+<section aria-label="Navigation" style="border-radius: 22px; border: 1px solid #1F2125; background: #0F1012; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">Navigation</h2>
+<div style="border-radius: 16px; overflow: hidden; border: 1px solid #1C1D21; background: #0A0B0D; height: 72px; padding: 8px 2px; box-sizing: border-box; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr))">
+<span style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #EDEEF0; font-size: 11px; font-weight: 600"><span style="width: 52px; height: 28px; border-radius: 14px; background: #24262B; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="2"></rect><rect x="13.5" y="3.5" width="7" height="7" rx="2"></rect><rect x="3.5" y="13.5" width="7" height="7" rx="2"></rect><rect x="13.5" y="13.5" width="7" height="7" rx="2"></rect></svg></span>Today</span>
+<span style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #8A8E96; font-size: 11px"><span style="height: 28px; display: flex; align-items: center"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 5 12 2.5-6H21"></path></svg></span>Body</span>
+<span style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #8A8E96; font-size: 11px"><span style="height: 28px; display: flex; align-items: center"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"></rect><path d="M3 10h18M16 15h2"></path></svg></span>Money</span>
+<span style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #8A8E96; font-size: 11px"><span style="height: 28px; display: flex; align-items: center"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"></path></svg></span>Train</span>
+<span style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #8A8E96; font-size: 11px"><span style="height: 28px; display: flex; align-items: center"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-8"></path><path d="M12 12c0-4 3-6 7-6 0 4-3 6-7 6z"></path><path d="M12 14c0-3-2-5-6-5 0 3 2 5 6 5z"></path></svg></span>Grow</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 4px; border-radius: 14px; background: #121316; border: 1px solid #1F2125"><span style="height: 36px; border-radius: 10px; background: #24262B; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center">Health</span><span style="height: 36px; color: #8A8E96; font-size: 14px; display: flex; align-items: center; justify-content: center">Nutrition</span></div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px"><span style="height: 32px; border-radius: 10px; color: #8A8E96; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center">1W</span><span style="height: 32px; border-radius: 10px; background: #1E2233; color: #C9D3FF; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center">1M</span><span style="height: 32px; color: #8A8E96; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center">3M</span><span style="height: 32px; color: #8A8E96; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center">1Y</span></div>
+<div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px">
+<span style="height: 54px; border-radius: 12px; border: 1px solid #1F2125; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 13px; font-weight: 600"><span style="font-size: 10px; color: #8A8E96; font-weight: 400">Mon</span>9</span>
+<span style="height: 54px; border-radius: 12px; border: 1px solid #1F2125; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 13px; font-weight: 600"><span style="font-size: 10px; color: #8A8E96; font-weight: 400">Tue</span>10</span>
+<span style="height: 54px; border-radius: 12px; border: 1px solid #1F2125; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 13px; font-weight: 600"><span style="font-size: 10px; color: #8A8E96; font-weight: 400">Wed</span>11</span>
+<span style="height: 54px; border-radius: 12px; border: 1px solid #1F2125; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 13px; font-weight: 600"><span style="font-size: 10px; color: #8A8E96; font-weight: 400">Thu</span>12</span>
+<span style="height: 54px; border-radius: 12px; border: 1px solid #1F2125; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 13px; font-weight: 600"><span style="font-size: 10px; color: #8A8E96; font-weight: 400">Fri</span>13</span>
+<span style="height: 54px; border-radius: 12px; background: #EDEEF0; color: #0A0B0D; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 13px; font-weight: 600"><span style="font-size: 10px; font-weight: 400">Sat</span>14</span>
+<span style="height: 54px; border-radius: 12px; border: 1px solid #1F2125; color: #6E727A; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 13px; font-weight: 600"><span style="font-size: 10px; font-weight: 400">Sun</span>15</span>
+</div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96">LifeNavBar · SegmentedPair · PeriodTabs · DayStrip</span>
+</section>
+
+<section aria-label="Stats and rings" style="border-radius: 22px; border: 1px solid #1F2125; background: #0F1012; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">Stats &amp; rings</h2>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<div style="border-radius: 18px; border: 1px solid #1F2125; background: #121316; padding: 14px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96; letter-spacing: 0.06em">WATER</span><span style="font-size: 22px; font-weight: 600">1.75 <span style="font-size: 13px; color: #8A8E96; font-weight: 500">/ 2.5 L</span></span><div style="height: 6px; border-radius: 3px; background: #1C2524"><div style="width: 70%; height: 6px; border-radius: 3px; background: #62D6C6"></div></div></div>
+<div style="border-radius: 18px; border: 1px solid #1F2125; background: #121316; padding: 14px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96; letter-spacing: 0.06em">HRV</span><span style="font-size: 22px; font-weight: 600">62 <span style="font-size: 13px; color: #8A8E96; font-weight: 500">ms</span></span><span style="align-self: flex-start; height: 22px; padding: 0 8px; border-radius: 11px; background: #14211F; color: #62D6C6; font-size: 11px; font-weight: 600; display: flex; align-items: center">↑ 7 vs base</span></div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-around">
+<svg role="img" aria-label="Small ring 70 percent" width="36" height="36" viewBox="0 0 36 36"><g transform="rotate(-90 18 18)" fill="none" stroke-width="4" stroke-linecap="round"><circle cx="18" cy="18" r="15" stroke="#29233A"></circle><circle cx="18" cy="18" r="15" stroke="#C5A1FF" stroke-dasharray="66 94.2"></circle></g></svg>
+<svg role="img" aria-label="Medium ring 82 percent" width="76" height="76" viewBox="0 0 76 76"><g transform="rotate(-90 38 38)" fill="none" stroke-width="7" stroke-linecap="round"><circle cx="38" cy="38" r="33" stroke="#1E2A2A"></circle><circle cx="38" cy="38" r="33" stroke="#62D6C6" stroke-dasharray="170 207.3"></circle></g><text x="38" y="44" text-anchor="middle" fill="#EDEEF0" font-family="Inter, sans-serif" font-size="18" font-weight="700">82</text></svg>
+<svg role="img" aria-label="Concentric day score rings" width="100" height="100" viewBox="0 0 132 132"><g transform="rotate(-90 66 66)" fill="none" stroke-linecap="round" stroke-width="9"><circle cx="66" cy="66" r="58" stroke="#1E2A2A"></circle><circle cx="66" cy="66" r="58" stroke="#62D6C6" stroke-dasharray="298.8 364.4"></circle><circle cx="66" cy="66" r="45" stroke="#2E271E"></circle><circle cx="66" cy="66" r="45" stroke="#F3B76A" stroke-dasharray="217.7 282.7"></circle><circle cx="66" cy="66" r="32" stroke="#29233A"></circle><circle cx="66" cy="66" r="32" stroke="#C5A1FF" stroke-dasharray="142.8 201.1"></circle></g><text x="66" y="75" text-anchor="middle" fill="#EDEEF0" font-family="Inter, sans-serif" font-size="26" font-weight="700">77</text></svg>
+</div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96">StatTile · DeltaChip · ProgressRing(size S/M) · DayScoreRings</span>
+</section>
+
+<section aria-label="List rows" style="border-radius: 22px; border: 1px solid #1F2125; background: #0F1012; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">Check rows · 4 states</h2>
+<div style="border-radius: 18px; border: 1px solid #1F2125; background: #121316; padding: 4px 0">
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 14px; min-height: 48px"><span style="width: 28px; height: 28px; border-radius: 14px; border: 1.5px solid #3A3F4A; box-sizing: border-box"></span><span style="flex: 1; font-size: 14px">Magnesium <span style="color: #8A8E96">· due 20:00</span></span><span style="font-size: 11px; color: #A1A4AB">Due</span></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 14px; min-height: 48px"><span style="width: 28px; height: 28px; border-radius: 14px; background: #62D6C6; color: #0A0B0D; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span style="flex: 1; font-size: 14px">Vitamin D3 + K2</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96">08:04</span></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 14px; min-height: 48px"><span style="width: 28px; height: 28px; border-radius: 14px; border: 1.5px dashed #FF8F70; box-sizing: border-box"></span><span style="flex: 1; font-size: 14px">Zinc <span style="color: #FF9A8F">· missed 13:00</span></span><span style="font-size: 11px; color: #A1A4AB">Log late</span></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 14px; min-height: 48px"><span style="width: 28px; height: 28px; border-radius: 14px; background: #24262B; color: #8A8E96; display: flex; align-items: center; justify-content: center; font-size: 16px">–</span><span style="flex: 1; font-size: 14px; color: #8A8E96; text-decoration: line-through">Ashwagandha</span><span style="font-size: 11px; color: #8A8E96">Skipped</span></div>
+</div>
+<div style="border-radius: 18px; border: 1px solid #1F2125; background: #121316; display: flex; align-items: center; gap: 12px; padding: 10px 14px"><span style="width: 36px; height: 36px; border-radius: 12px; background: #1E2233; color: #93A9FF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">R</span><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">Rimi</span><span style="font-size: 12px; color: #8A8E96">Groceries · Today 17:22</span></span><span style="font-size: 14px; font-weight: 600">−€23.40</span></div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96">CheckRow(state) · TransactionRow · swipe → skip / log late</span>
+</section>
+
+<section aria-label="Inputs" style="border-radius: 22px; border: 1px solid #1F2125; background: #0F1012; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">Inputs</h2>
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; color: #A1A4AB">Smart input · focused</span><span style="display: flex; align-items: center; height: 52px; padding: 0 14px; border-radius: 16px; background: #0D0E10; border: 1.5px solid #D3F36B; box-sizing: border-box"><input value="bench 90x5" readonly style="flex: 1; border: 0; outline: none; background: transparent; color: #EDEEF0; font-family: Inter, sans-serif; font-size: 16px"></span></label>
+<label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; color: #A1A4AB">Text field · rest</span><span style="display: flex; align-items: center; height: 52px; padding: 0 14px; border-radius: 16px; background: #121316; border: 1px solid #24262B; box-sizing: border-box"><input placeholder="Amount, €" style="flex: 1; border: 0; outline: none; background: transparent; color: #EDEEF0; font-family: Inter, sans-serif; font-size: 16px"></span></label>
+<div style="display: flex; align-items: center; justify-content: space-between">
+<div style="display: flex; align-items: center; gap: 8px"><button aria-label="Decrease" style="width: 44px; height: 44px; border-radius: 14px; border: 0; background: #24262B; color: #EDEEF0; font-size: 20px">−</button><span style="width: 64px; text-align: center; font-size: 24px; font-weight: 700">87.5</span><button aria-label="Increase" style="width: 44px; height: 44px; border-radius: 14px; border: 0; background: #24262B; color: #EDEEF0; font-size: 20px">+</button></div>
+<span role="switch" aria-checked="true" aria-label="Reminders" style="width: 52px; height: 32px; border-radius: 16px; background: #D3F36B; position: relative; display: block"><span style="position: absolute; right: 4px; top: 4px; width: 24px; height: 24px; border-radius: 12px; background: #0A0B0D"></span></span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px"><button style="height: 44px; border-radius: 12px; border: 1px solid #24262B; background: #171A1C; color: #EDEEF0; font-size: 14px; font-weight: 600">+150</button><button style="height: 44px; border-radius: 12px; border: 0; background: #62D6C6; color: #0A0B0D; font-size: 14px; font-weight: 600">+250</button><button style="height: 44px; border-radius: 12px; border: 1px solid #24262B; background: #171A1C; color: #EDEEF0; font-size: 14px; font-weight: 600">+500</button></div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96">SmartLogField · LifeTextField · Stepper(step) · QuickAddRow</span>
+</section>
+
+<section aria-label="Feedback" style="border-radius: 22px; border: 1px solid #1F2125; background: #0F1012; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">Feedback</h2>
+<div role="status" style="height: 52px; border-radius: 16px; background: #EDEEF0; color: #0A0B0D; display: flex; align-items: center; justify-content: space-between; padding: 0 8px 0 16px"><span style="font-size: 14px; font-weight: 500">Logged 250 ml water</span><span style="padding: 0 12px; font-size: 14px; font-weight: 700; color: #3B4A10">Undo</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="height: 28px; padding: 0 10px; border-radius: 14px; background: #2E271E; color: #F3B76A; font-size: 12px; font-weight: 600; display: flex; align-items: center">23-day streak</span>
+<span style="height: 22px; padding: 0 8px; border-radius: 11px; background: #33231F; color: #FFB29C; font-size: 11px; font-weight: 700; display: flex; align-items: center; letter-spacing: 0.04em">NEW PR</span>
+<span style="height: 28px; padding: 0 10px; border-radius: 14px; background: #18261E; color: #8BE3A5; font-size: 12px; font-weight: 600; display: flex; align-items: center">+2.4%</span>
+<span style="height: 28px; padding: 0 10px; border-radius: 14px; background: #33211C; color: #FF9A8F; font-size: 12px; font-weight: 600; display: flex; align-items: center">€36 over</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; font-size: 12px"><span>Groceries</span><span style="color: #A1A4AB">€312 of €400</span></div><div style="height: 6px; border-radius: 3px; background: #1C1E24"><div style="width: 78%; height: 6px; border-radius: 3px; background: #93A9FF"></div></div>
+<div style="display: flex; justify-content: space-between; font-size: 12px"><span>Eating out</span><span style="color: #FF9A8F">€36 over</span></div><div style="height: 6px; border-radius: 3px; background: #FF8F70"></div>
+</div>
+<div style="border-radius: 16px; border: 1px solid #241F2E; background: #15131A; padding: 14px; font-size: 14px; line-height: 1.45">You read <span style="color: #C5A1FF">38% more</span> after 7 h+ sleep.</div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96">UndoSnackbar · Badge(tone) · BudgetBar · InsightCard</span>
+</section>
+
+<section aria-label="Charts" style="border-radius: 22px; border: 1px solid #1F2125; background: #0F1012; padding: 20px; display: flex; flex-direction: column; gap: 16px; grid-column: span 2">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">Charts &amp; calendars · rules: no axes unless needed, today is the only saturated mark, goal = dashed line</h2>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<div style="border-radius: 18px; border: 1px solid #1F2125; background: #121316; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<svg role="img" aria-label="Weekly bar chart example" width="100%" height="100" viewBox="0 0 220 100"><line x1="0" y1="20" x2="220" y2="20" stroke="#5A4A33" stroke-dasharray="3 4"></line><g fill="#3A3226"><rect x="2" y="30" width="24" height="60" rx="5"></rect><rect x="33" y="22" width="24" height="68" rx="5"></rect><rect x="64" y="28" width="24" height="62" rx="5"></rect><rect x="95" y="36" width="24" height="54" rx="5"></rect><rect x="126" y="16" width="24" height="74" rx="5"></rect></g><rect x="157" y="40" width="24" height="50" rx="5" fill="#F3B76A"></rect><rect x="188.5" y="20.5" width="23" height="69" rx="5" fill="none" stroke="#2C2F36" stroke-dasharray="3 3"></rect></svg>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96">WeekBars(goal, today)</span>
+</div>
+<div style="border-radius: 18px; border: 1px solid #1F2125; background: #121316; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<svg role="img" aria-label="Area line chart example" width="100%" height="100" viewBox="0 0 220 100"><defs><linearGradient id="cFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#93A9FF" stop-opacity="0.22"></stop><stop offset="1" stop-color="#93A9FF" stop-opacity="0"></stop></linearGradient></defs><path d="M0 70 L30 64 L60 72 L90 52 L120 56 L150 38 L180 42 L214 20 L214 100 L0 100 Z" fill="url(#cFill)"></path><path d="M0 70 L30 64 L60 72 L90 52 L120 56 L150 38 L180 42 L214 20" fill="none" stroke="#93A9FF" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path><circle cx="214" cy="20" r="4" fill="#0A0B0D" stroke="#93A9FF" stroke-width="2"></circle></svg>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96">TrendArea(period) · Sparkline</span>
+</div>
+<div style="border-radius: 18px; border: 1px solid #1F2125; background: #121316; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px">
+<span style="height: 22px; border-radius: 6px; background: #62D6C6"></span><span style="height: 22px; border-radius: 6px; background: #62D6C6"></span><span style="height: 22px; border-radius: 6px; background: #2B5B55"></span><span style="height: 22px; border-radius: 6px; background: #62D6C6"></span><span style="height: 22px; border-radius: 6px; background: #62D6C6"></span><span style="height: 22px; border-radius: 6px; border: 1.5px solid #62D6C6; box-sizing: border-box"></span><span style="height: 22px; border-radius: 6px; background: #1A1C20"></span>
+<span style="height: 22px; border-radius: 6px; background: #1A1C20"></span><span style="height: 22px; border-radius: 6px; background: #1A1C20"></span><span style="height: 22px; border-radius: 6px; background: #1A1C20"></span><span style="height: 22px; border-radius: 6px; background: #1A1C20"></span><span style="height: 22px; border-radius: 6px; background: #1A1C20"></span><span style="height: 22px; border-radius: 6px; background: #1A1C20"></span><span style="height: 22px; border-radius: 6px; background: #1A1C20"></span>
+</div>
+<div style="display: flex; height: 12px; border-radius: 6px; overflow: hidden; gap: 2px"><span style="flex: 6; background: #5A5F6A"></span><span style="flex: 22; background: #8FCFC6"></span><span style="flex: 49; background: #3E8C82"></span><span style="flex: 23; background: #62D6C6"></span></div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96">StreakCalendar · Heatmap · StageBar</span>
+</div>
+</div>
+</section>
+
+<section aria-label="Card anatomy" style="border-radius: 22px; border: 1px solid #1F2125; background: #0F1012; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">Card anatomy</h2>
+<div style="position: relative; border-radius: 20px; border: 1px dashed #3A3F4A; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; font-weight: 600">Section title</span><span style="font-size: 12px; color: #8A8E96">meta · 12</span></div>
+<div style="height: 48px; border-radius: 10px; background: repeating-linear-gradient(45deg, #15161A 0 6px, #121316 6px 12px)"></div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8A8E96">pad 16 · gap 10–14 · radius 20 · 1 px #1F2125</span>
+</div>
+<div style="border-radius: 24px; border: 1px solid #1F2125; background: linear-gradient(180deg, #16171B 0%, #111215 100%); padding: 16px; font-size: 13px; color: #A1A4AB; line-height: 1.5">Hero card: radius 24, 180° gradient #16171B → #111215, plus a 7–9% module-hue radial glow behind the screen header.</div>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A8E96">LifeCard · HeroCard(hue) · SectionHeader</span>
+</section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1720}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

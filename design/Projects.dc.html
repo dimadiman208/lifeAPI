@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LifeAPI — Projects</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#08090A}
+a{color:#EDEEF0}a:hover{color:#FFFFFF}
+button{font-family:inherit;cursor:pointer}
+.ph{width:390px;height:844px;border-radius:36px;background:#0A0B0D;border:1px solid #24262B;overflow:hidden;position:relative;box-sizing:border-box;flex:none}
+.cap{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A8E96;letter-spacing:.06em}
+.lbl{font-size:14px;color:#EDEEF0;margin-top:14px;text-align:center}
+.lbl small{display:block;color:#8A8E96;font-size:12px;margin-top:4px}
+.card{border-radius:20px;border:1px solid #1F2125;background:#121316}
+.ico{width:40px;height:40px;border-radius:20px;background:#1A1C20;color:#C9CBD0;display:flex;align-items:center;justify-content:center;border:0;flex:none;text-decoration:none}
+.dim{border-radius:12px;background:#17181C;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
+.dim span:first-child{font-size:10px;color:#8A8E96;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+.dim span:last-child{font-size:14px;font-weight:600}
+.nv{position:absolute;left:0;right:0;bottom:0;height:80px;box-sizing:border-box;padding:8px 4px 16px;background:rgba(10,11,13,.94);border-top:1px solid #1C1D21;display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.nv a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#8A8E96;font-size:11px}
+</style>
+</helmet>
+<div style="width: 1330px; height: 1100px; box-sizing: border-box; padding: 40px; background: #08090A; color: #EDEEF0; font-family: Inter, system-ui, sans-serif; font-feature-settings: 'tnum' 1; display: flex; flex-direction: column; gap: 28px">
+<header style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px"><h1 style="margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Grow › Projects</h1><span style="font-size: 13px; color: #A1A4AB">Every project leads with its Next Action · Consistency / Effort / Output tracked separately</span></header>
+<div style="display: flex; gap: 40px; align-items: flex-start">
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 24px 16px">
+<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Grow</h2><span class="ico" aria-label="New project"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></div>
+<nav aria-label="Grow sections" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4px; border-radius: 14px; background: #121316; border: 1px solid #1F2125"><a href="Projects.dc.html" aria-current="page" style="height: 36px; border-radius: 10px; background: #24262B; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none">Projects</a><a href="Grow.dc.html" style="height: 36px; color: #8A8E96; font-size: 14px; display: flex; align-items: center; justify-content: center; text-decoration: none">Growth</a><a href="Plan.dc.html" style="height: 36px; color: #8A8E96; font-size: 14px; display: flex; align-items: center; justify-content: center; text-decoration: none">Plan</a></nav>
+<sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+<div class="card" style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 16px; font-weight: 600">{{ p.name }}</span><span style="font-size: 12px; color: #A1A4AB">{{ p.pct }}% · {{ p.streak }}</span></div>
+<div style="height: 6px; border-radius: 3px; background: #29233A"><div style="height: 6px; border-radius: 3px; background: #C5A1FF; width: {{ p.w }}"></div></div>
+<div style="border-radius: 12px; background: #17141D; padding: 10px 12px; display: flex; align-items: center; gap: 10px"><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 10px; color: #C5A1FF; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.06em">NEXT ACTION</span><span style="font-size: 13px; font-weight: 500; line-height: 1.35">{{ p.next }}</span></span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6E727A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px"><div class="dim"><span>CONSIST.</span><span>{{ p.c }}</span></div><div class="dim"><span>EFFORT</span><span>{{ p.e }}</span></div><div class="dim"><span>OUTPUT</span><span>{{ p.o }}</span></div></div>
+</div>
+</sc-for>
+</div>
+<nav aria-label="Primary" class="nv"><a href="Main.dc.html">Today</a><a href="Health.dc.html">Body</a><a href="Money.dc.html">Money</a><a href="Train.dc.html">Train</a><a href="Grow.dc.html" aria-current="page" style="color: #EDEEF0; font-weight: 600"><span style="width: 52px; height: 6px; border-radius: 3px; background: #C5A1FF"></span>Grow</a></nav>
+</div>
+<figcaption class="lbl">Projects list<small>Grow tab · Projects segment</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 16px">
+<div style="display: flex; align-items: center; gap: 10px"><a href="Projects.dc.html" class="ico" aria-label="Back"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></a><span style="flex: 1; display: flex; flex-direction: column"><span style="font-size: 17px; font-weight: 600">LifeAPI app</span><span style="font-size: 12px; color: #8A8E96">Started 2 Oct · target 31 Jan</span></span><span style="font-size: 20px; font-weight: 700; color: #C5A1FF">62%</span></div>
+<div style="border-radius: 20px; border: 1px solid #3A2F52; background: linear-gradient(180deg, #1C1726 0%, #131217 100%); padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+<span class="cap" style="color: #C5A1FF">NEXT ACTION · STALLED 3 DAYS</span>
+<span style="font-size: 16px; font-weight: 600; line-height: 1.35">Open PR: Room schema for supplements &amp; intake log</span>
+<div style="display: flex; gap: 8px"><button onClick="{{ toggleRun }}" style="flex: 1; height: 44px; border-radius: 14px; border: 0; background: #C5A1FF; color: #0A0B0D; font-size: 14px; font-weight: 600">Focus 25 min</button><button style="height: 44px; padding: 0 14px; border-radius: 14px; border: 1px solid #3A2F52; background: transparent; color: #C5A1FF; font-size: 14px; font-weight: 500">Done</button></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 4px"><span class="cap" style="font-size: 10px">CONSISTENCY</span><span style="font-size: 18px; font-weight: 600">9 / 14</span><span style="font-size: 11px; color: #8A8E96">days worked</span></div>
+<div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 4px"><span class="cap" style="font-size: 10px">EFFORT</span><span style="font-size: 18px; font-weight: 600">6.5 h</span><span style="font-size: 11px; color: #FF9A8F">−2 h vs last wk</span></div>
+<div class="card" style="padding: 12px; display: flex; flex-direction: column; gap: 4px"><span class="cap" style="font-size: 10px">OUTPUT</span><span style="font-size: 18px; font-weight: 600">11 tasks</span><span style="font-size: 11px; color: #8BE3A5">+4 · 1 milestone</span></div>
+</div>
+<div class="card" style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; font-weight: 600">v0.3 · Offline data layer</span><span style="font-size: 12px; color: #A1A4AB">{{ doneSubs }} / 5</span></div>
+<sc-for list="{{ subs }}" as="s" hint-placeholder-count="5">
+<button onClick="{{ s.toggle }}" aria-pressed="{{ s.done }}" style="display: flex; align-items: center; gap: 10px; min-height: 36px; border: 0; background: transparent; color: {{ s.fg }}; padding: 0; text-align: left; font-size: 14px"><span style="width: 20px; height: 20px; border-radius: 6px; flex: none; border: {{ s.bd }}; background: {{ s.bg }}; color: #0A0B0D; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="opacity: {{ s.op }}"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span style="text-decoration: {{ s.td }}">{{ s.t }}</span></button>
+</sc-for>
+<span style="font-size: 12px; color: #8A8E96">Next: v0.4 · Widgets &amp; reminders (6 tasks)</span>
+</div>
+<div class="card" style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"></path></svg>lifeapi-android</span><span style="font-size: 12px; color: #8A8E96">synced 17:55</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; font-size: 12px; color: #A1A4AB"><span><span style="display: block; font-size: 16px; font-weight: 600; color: #EDEEF0">23</span>commits / wk</span><span><span style="display: block; font-size: 16px; font-weight: 600; color: #EDEEF0">2</span>PRs merged</span><span><span style="display: block; font-size: 16px; font-weight: 600; color: #EDEEF0">+1.8k</span>lines</span></div>
+<div aria-hidden="true" style="display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); grid-auto-flow: column; grid-template-rows: repeat(7, 7px); gap: 2px">
+<sc-for list="{{ gh }}" as="c" hint-placeholder-count="168"><span style="border-radius: 2px; background: {{ c }}"></span></sc-for>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="lbl">Project detail<small>Next action · 3 dimensions · milestones · GitHub activity</small></figcaption>
+</figure>
+
+<figure style="margin: 0">
+<div class="ph" style="background: #0B0A0E">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 24px 16px">
+<div style="align-self: stretch; display: flex; justify-content: space-between; align-items: center"><span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></span><span class="cap">FOCUS · 2 OF 4 TODAY</span><span style="width: 40px"></span></div>
+<span style="height: 28px; padding: 0 12px; border-radius: 14px; background: #29233A; color: #C5A1FF; font-size: 12px; font-weight: 600; display: flex; align-items: center">LifeAPI app</span>
+<span style="font-size: 17px; font-weight: 600; text-align: center; line-height: 1.35; max-width: 300px">Open PR: Room schema for supplements &amp; intake log</span>
+<div style="position: relative; width: 250px; height: 250px">
+<svg role="img" aria-label="{{ timeLeft }} left of 25 minutes" width="250" height="250" viewBox="0 0 250 250"><g transform="rotate(-90 125 125)" fill="none" stroke-linecap="round"><circle cx="125" cy="125" r="112" stroke="#211C2B" stroke-width="10"></circle><circle cx="125" cy="125" r="112" stroke="#C5A1FF" stroke-width="10" stroke-dasharray="{{ dash }}" style="transition: stroke-dasharray 900ms linear"></circle></g></svg>
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 52px; font-weight: 500; letter-spacing: -0.02em">{{ timeLeft }}</span><span style="font-size: 13px; color: #A1A4AB">{{ runLabel }}</span></div>
+</div>
+<div style="display: flex; gap: 12px; align-items: center">
+<button aria-label="Stop session" style="width: 56px; height: 56px; border-radius: 28px; border: 1px solid #2C2F36; background: transparent; color: #A1A4AB; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg></button>
+<button onClick="{{ toggleRun }}" style="height: 64px; padding: 0 32px; border-radius: 32px; border: 0; background: #C5A1FF; color: #0A0B0D; font-size: 16px; font-weight: 700">{{ btnLabel }}</button>
+<button aria-label="Add 5 minutes" style="width: 56px; height: 56px; border-radius: 28px; border: 1px solid #2C2F36; background: transparent; color: #A1A4AB; font-size: 13px; font-weight: 600">+5</button>
+</div>
+<div style="align-self: stretch; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 6px"><span style="height: 6px; border-radius: 3px; background: #C5A1FF"></span><span style="height: 6px; border-radius: 3px; background: #C5A1FF"></span><span style="height: 6px; border-radius: 3px; background: #574873"></span><span style="height: 6px; border-radius: 3px; background: #211C2B"></span></div>
+<div style="align-self: stretch; display: flex; justify-content: space-between; font-size: 12px; color: #8A8E96"><span>25 / 5 · long break after 4</span><span>Do Not Disturb on</span></div>
+</div>
+</div>
+<figcaption class="lbl">Focus session<small>Pomodoro tied to a task; time counts as Effort. Pause works in Play</small></figcaption>
+</figure>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1330,"height":1100}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { left: 18 * 60 + 42, running: true, subs: [true, true, false, false, false] };
+  }
+  componentDidMount() { this.iv = setInterval(() => { if (this.state.running && this.state.left > 0) this.setState({ left: this.state.left - 1 }); }, 1000); }
+  componentWillUnmount() { clearInterval(this.iv); }
+  renderVals() {
+    const st = this.state;
+    const C = 2 * Math.PI * 112;
+    const mm = Math.floor(st.left / 60), ss = st.left % 60;
+    const subT = ['Entities: Supplement, Dose, Schedule', 'DAO + Flow queries for Today', 'Room schema PR + migration test', 'Water entries with soft delete', 'Export to JSON backup'];
+    const subs = subT.map((t, i) => {
+      const d = st.subs[i];
+      return { t, done: d, fg: d ? '#8A8E96' : '#EDEEF0', td: d ? 'line-through' : 'none', bd: d ? '0' : '1.5px solid #3A3F4A', bg: d ? '#C5A1FF' : 'transparent', op: d ? 1 : 0,
+        toggle: () => { const s = st.subs.slice(); s[i] = !d; this.setState({ subs: s }); } };
+    });
+    let seed = 11; const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+    const gh = [];
+    for (let i = 0; i < 168; i++) { const r = rnd() + i / 500; gh.push(r > 0.95 ? '#C5A1FF' : r > 0.7 ? '#7D66AB' : r > 0.45 ? '#3F3557' : '#1A1C20'); }
+    return {
+      timeLeft: mm + ':' + ('0' + ss).slice(-2),
+      dash: (C * st.left / 1500).toFixed(1) + ' ' + C.toFixed(1),
+      runLabel: st.running ? 'focusing · ends 19:21' : 'paused',
+      btnLabel: st.running ? 'Pause' : 'Resume',
+      toggleRun: () => this.setState({ running: !st.running }),
+      subs, doneSubs: st.subs.filter(Boolean).length, gh,
+      projects: [
+        { name: 'LifeAPI app', pct: 62, w: '62%', streak: '9-day streak', next: 'Open PR: Room schema for supplements & intake log', c: '64%', e: '6.5 h', o: '11 tasks' },
+        { name: 'Portfolio site v3', pct: 30, w: '30%', streak: 'last 6 days ago', next: 'Write case study intro (300 words)', c: '21%', e: '1.5 h', o: '2 tasks' },
+        { name: 'Half marathon block', pct: 50, w: '50%', streak: '4-week streak', next: 'Sun: 16 km easy @ 5:50/km', c: '86%', e: '4.2 h', o: '4 runs' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
